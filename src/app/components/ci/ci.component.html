@@ -1,0 +1,61 @@
+<article class="container">
+  <h1 class="display-4">Continuous Integration</h1>
+  
+  <p>We use <a href="https://ci.appveyor.com/project/MathewSachin/Captura" target="_blank">AppVeyor</a> for Continuous Integration.</p>
+  <p>When a commit is pushed to the GitHub repository, AppVeyor clones the repo and builds, tests and deploys it.</p>
+  
+  <h3>Build</h3>
+  
+  <p>NuGet packages directory is cached until no <code>packages.config</code> files change.</p>
+  <p>
+    The build output along with dependencies is packaged as a Zip file.
+    License files, BASS and BassMix dlls are downloaded and included in the build output.
+  </p>
+  <p>
+    On Tag builds, version is determined from the tag name.
+    Otherwise, <code>AssemblyInfo.cs</code> files are used.
+  </p>
+  <p>
+    Release builds include the main exe, dll files and config file.
+    Debug builds include PDB (Symbol Database Files) and XML documentation files in addition to those in Release builds.
+  </p>
+  
+  <h3>Test</h3>
+  
+  <p>ScreenShots of <code>captura.ui.exe</code> are taken using <code>captura shot</code>.</p>
+  <p><del>On Tag builds, the ScreenShots on the website are updated.</del></p>
+  
+  <h3>Deploy</h3>
+  
+  <p>AppVeyor automates the Release process.</p>
+  <p>
+    Tags are used to indicate a release.
+    Tag format is verified to match <code>vMajor.Minor.Patch-prerelease</code>. When tag does not match this format, build fails.
+  </p>
+  <p><code>AssemblyInfo.cs</code> files are updated as per the tag.</p>
+  <p>Api keys for Imgur are written into the app.</p>
+  <p>
+    The application is deployed to GitHub Releases as a Draft.
+    Also, Chocolatey package is prepared corresponding to the GitHub Release.
+    It can be manually deployed once the GitHub Releases draft is published.
+  </p>
+  
+  <h3>Getting the Dev Builds</h3>
+
+  <p class="text-muted">Dev builds can be unstable and should be used for testing purposes only.</p>
+  
+  <ol>
+    <li>
+      <p>Go to <a href="https://ci.appveyor.com/project/MathewSachin/Captura" target="_blank">AppVeyor project</a> page.</p>
+    </li>
+    <li>
+      <p>Select Build Configuration: <strong>Debug</strong> or <strong>Release</strong>.</p>
+    </li>
+    <li>
+      <p>Open <strong>Artifacts</strong> tab.</p>
+    </li>
+    <li>
+      <p>Download <strong>Zip package</strong>.</p>
+    </li>
+  </ol>
+</article>

@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h1 class="display-3">Captura</h1>
+    <p class="lead">Capture Screen, WebCam, Audio, Cursor, Mouse Clicks and Keystrokes</p>
+    
+    <a href="https://ci.appveyor.com/project/MathewSachin/Captura" target="_blank"><img src="https://img.shields.io/appveyor/ci/MathewSachin/Captura.svg?style=flat-square" alt="Build Status"></a>
+    <a routerLink="/license"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License"></a>
+    <a href="https://gitter.im/MathewSachin/Captura" target="_blank"><img src="https://img.shields.io/gitter/room/MathewSachin/Captura.svg?style=flat-square" alt="Chat"></a>
+    
+    <br><br>
+    
+    <div>
+      <a href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank" class="btn btn-outline-info mr-3 mb-3"><i class="fa fa-download fa-lg"></i> Download</a>
+      <a href="https://github.com/MathewSachin/Captura" target="_blank" class="btn btn-outline-info mr-3 mb-3"><i class="fa fa-code-fork fa-lg"></i> Source Code</a>
+      <a href="https://www.paypal.me/MathewSachin" target="_blank" class="btn btn-outline-info mr-3 mb-3"><i class="fa fa-credit-card fa-lg"></i> Donate</a>
+    </div>
+
+    <br><br>
+  </div>
+  <div class="col-lg">
+    <div class="text-center">
+      <img src="http://i.imgur.com/syPGnSd.png" style="max-width: 100%;">
+    </div>
+
+    <br>
+
+    <button routerLink="/screenshots" class="btn btn-primary btn-block">View more ScreenShots</button>
+  </div>
+</div>
+
+<br>
+<hr>
+
+<h2>Features</h2>
+
+<div class="row features">
+  <div class="col-lg-4 col-md-6">
+    <h4>Free</h4>
+    <p>Captura is 100% free. You don't need to spend a penny.</p>
+    <p>You can support by <a href="https://www.paypal.me/MathewSachin" target="_blank">donating</a> or just <a href="https://github.com/MathewSachin/Captura" target="_blank">starring</a> the repository.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>Open-Source</h4>
+    <p>Source-code for Captura is available on <a href="https://github.com/MathewSachin/Captura" target="_blank">GitHub</a> under the terms of the MIT license</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>No Ads</h4>
+    <p>The app is completely ad-free.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>Multiple Languages</h4>
+    <p>Available in more than 10 languages.</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row features">
+  <div class="col-lg-4 col-md-6">
+    <h4>System Tray</h4>
+    <p>Captura can run unobtrusively remaining minimized to the System Tray.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4><a routerLink="/cmdline">Command-line Usage</a></h4>
+    <p>Hello developers! Captura can be used from your terminal. Only for Portable builds.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4><a routerLink="/hotkeys">Hotkeys</a></h4>
+    <p>Take ScreenShots and control recordings from the keyboard even when Captura is in System Tray using Configurable Hotkeys.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>Input/Output Audio Mixing</h4>
+    <p>Captura can do the much demanded task of mixing Microphone input audio and Speaker output audio.</p>
+  </div>        
+  <div class="col-lg-4 col-md-6">
+    <h4>Clicks and Keystrokes</h4>
+    <p>Mouse Clicks and Keystrokes can be shown in the recordings. Options and present for customization.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>Region</h4>
+    <p>Captura can capture specific regions using the Region Selector.</p>
+    <p>It can even Snap to windows.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>WebCam</h4>
+    <p>You can include WebCam view in your recordings. Perfect for making tutorials.</p>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h4>Game Recording</h4>
+    <p>DirectX Fullscreen games can be recorded using Desktop Duplication API. Needs to be supported by the game and the graphic card.</p>
+  </div>
+</div>
+
+<br><hr>
+
+<h2>Installation</h2>
+
+<p>There are a few different options for installing.</p>
+
+<h4>Setup</h4>
+
+<p>Download and run <code>Captura-Setup.exe</code> for the latest release from <a href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank">here</a>.</p>
+
+<h4>Portable</h4>
+
+<p>Download and unzip <code>Captura-Portable.zip</code> for the latest release from <a href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank">here</a>.</p>
+<p>The settings are stored in <code>%APPDATA%/Captura</code> folder by default. You might want to customize this for the portable build using the <code>--settings</code> command-line argument.</p>
+
+<h4>Chocolatey</h4>
+
+<div class="highlight highlight-source-powershell"><pre>choco install captura <span class="pl-k">-</span>y</pre></div>
+
+<h4>Dev Builds</h4>
+
+<p>See <a routerLink="/ci">here</a>.</p>
+
+<br><hr>
+
+<h2>Build Notes</h2>
+
+<ul>
+  <li><a href="https://visualstudio.com" target="_blank">Visual Studio 2017</a> or greater is recommended. Can also be built using Visual Studio 2015 using <a href="https://www.nuget.org/packages/Microsoft.Net.Compilers" rel="nofollow">Microsoft.Net.Compilers</a> nuget package to support compilation of C# 7.</li>
+  <li>.Net Framework v4.6.1 is required.</li>
+  <li>For detailed information, see <a routerLink="/build">Building</a>.</li>
+</ul>
+
+<br><hr>
+
+<h2>System Requirements</h2>
+
+<ul>
+  <li>Verified on <strong>Windows 10</strong>. Might work on earlier versions also.</li>
+  <li>2 GHz CPU (Recommended).</li>
+  <li>4 GB RAM (Recommended).</li>
+  <li><strong>.Net Framework v4.6.1</strong> is required. You will be prompted to install if it is not already present on your system.</li>
+  <li>Using the <strong>FFMpeg Intel QSV HEVC</strong> encoder requires the processor to be <strong>Skylake (6th generation)</strong> or later.</li>
+  <li><strong>Desktop Duplication API</strong> is only available on <strong>Windows 8</strong> and above.</li>
+  <li>For using <code>SharpAvi | Lagarith</code> codec, the Lagarith codec should be installed on your system and configured to use RGB mode with Null Frames disabled.</li>
+</ul>
+
+<br><hr>
+
+<h2>FFMpeg</h2>
+
+<p><a href="http://ffmpeg.org/" target="_blank">FFMpeg</a> is an open-source cross-platform solution to record, convert and stream audio and video.
+It adds support for more output formats like <strong>H.264</strong> for Video and <strong>Mp3</strong>, <strong>AAC</strong> etc. when capturing <strong>Only Audio</strong>.</p>
+<p>FFMpeg is configured on the <strong>FFMpeg</strong> section in the <strong>Configure</strong> tab.</p>
+<p>Due to its large size (approx. 30MB), it is not included in the downloads.
+If you already have FFMpeg on your system, you can just set the path to the folder containing it.
+If it is installed globally (available in PATH), you don't have to do anything.
+If you don't have FFMpeg or want to update, use the inbuilt <strong>FFMpeg Downloader</strong>.
+FFMpeg needs to be downloaded only once.</p>
+<p>In cases where the <strong>FFMpeg Downloader</strong> fails, please download manually from <a href="https://ffmpeg.zeranoe.com/builds/" target="_blank">https://ffmpeg.zeranoe.com/builds/</a> and set FFMpeg folder in <code>Configure | FFMpeg</code>.</p>
+<p>If you don't want to use FFMpeg, you can switch to <code>SharpAvi</code>.</p>

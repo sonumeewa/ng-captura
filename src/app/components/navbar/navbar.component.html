@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a routerLink="/" (click)="collapse()" class="navbar-brand">Captura</a>
+        <button class="navbar-toggler"
+                (click)="collapsed = !collapsed">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse" [class.collapse]="collapsed">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLinkActive="active" routerLink="/donate">Donations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLinkActive="active" routerLink="/license">License</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLinkActive="active" routerLink="/screenshots">ScreenShots</a>
+                </li>
+                <li class="nav-item dropdown" [class.show]="dropdown1">
+                    <button class="btn btn-link nav-link dropdown-toggle" (click)="dropdown1 = !dropdown1">
+                        Docs
+                    </button>
+                    <div class="dropdown-menu" [class.show]="dropdown1">
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/changelog">Changelog</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/cmdline">Command-line</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/faq">FAQ</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/hotkeys">Hotkeys</a>
+                        
+                        <div class="dropdown-divider"></div>
+                        
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/build">Building</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/code_of_conduct">Code of Conduct</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/ci">Continuous Integration</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/contributing">Contributing</a>
+                        <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/translation">Translation</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://gitter.im/MathewSachin/Captura">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://github.com/MathewSachin/Captura">GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

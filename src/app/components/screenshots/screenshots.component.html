@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="display-4">ScreenShots</h1>
+  <small>There may be minor variations from the current version of the app.</small>
+
+  <div *ngFor="let screenshot of screenshots">
+    <h3>{{screenshot.name}}</h3>
+    <img [alt]="screenshot.name" [src]="screenshot.url" style="max-width: 100%;">
+  </div>
+</div>

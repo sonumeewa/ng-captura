@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="display-4">Translation</h1>
+
+  <p>Captura is localized using language-specific JSON files. Language can be set on Config tab.</p>
+
+  <h3>Contributing</h3>
+
+  <ul>
+    <li>Copy the <code>en.json</code> file in <code>src/Captura.Core/Languages</code> folder.</li>
+    <li>Rename the copy to <code>[Language ID].json</code> where <code>[Language ID]</code> is the ID of language you are translating into.</li>
+    <li>Do translation in the renamed file.</li>
+    <li>Send Pull Request.</li>
+  </ul>
+  
+  <h3>Testing</h3>
+  
+  <p>
+    Place the <code>[Language ID].json</code> file in the <code>Languages</code> folder of a build.
+    The Language can be tested by starting Captura and selecting the Language on <code>Config</code> tab.
+  </p>
+
+  <h3>Currently supported languages</h3>
+
+  <br>
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Language</th>
+        <th>Locale ID</th>
+        <th>Contributors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let translation of translations">
+        <td>{{translation.language}}</td>
+        <td>{{translation.id}}</td>
+        <td>
+          <span *ngFor="let translator of translation.translators; index as i">
+            <a href="https://github.com/{{translator}}" target="_blank">{{translator}}</a><span *ngIf="i != translation.translators.length - 1">, </span>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

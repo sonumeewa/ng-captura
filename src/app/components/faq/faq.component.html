@@ -1,0 +1,50 @@
+<article class="container">
+  <h1 class="display-4">FAQ</h1>
+  <small>Frequently Asked Questions</small>
+
+  <h3>Will Captura support Linux or Mac?</h3>
+  
+  <p>Captura is written using .NET Framework, which at present, is supported only on Windows.</p>
+  <p>Software written using .NET Framework can work on Linux and Mac using Mono but the native calls and UI pose a problem to that.</p>
+  <p>Also, the recently released .Net Core only has support for console applications.</p>
+  
+  <h3>Does Captura support DirectX Game Video Recording?</h3>
+  
+  <p>Some newer games can be recorded using Desktop Duplication API. Select Desktop Duplication as Video source.</p>
+  <p>Make sure to use a fast codec like Mp4 (x264).</p>
+  <p>A list of games that have been tried:</p>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Game</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of deskDuplTested">
+        <td>{{item.name}}</td>
+        <td class="{{item.ok ? 'text-success' : 'text-danger'}}">{{item.ok ? "OK" : "FAIL"}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Captura runs out of resources (high memory/CPU/disk usage) during recording</h3>
+  
+  <p>Atleast 2 GHz CPU and 4 GB RAM are recommended.</p>
+  <p>
+    This may happen if frames are not being captured as fast as the framerate set.
+    Try a lower value of framerate, 15fps would always work.
+    We admit that the technology employed in Captura is not fast.
+  </p>
+  <p>There are solutions like Fraps, Dxtory, OBS, and NVidia Share which provide 60fps recordings, but the technologies they use are complicated.</p>
+  
+  <h3>Webcam capture does not work</h3>
+  
+  <p>Try updating the drivers from <code>Control Panel &gt; Device Manager</code>.</p>
+  
+  <h3>All options appear blank</h3>
+  
+  <p>This can occur due to Settings file being corrupted.</p>
+  <p>Try deleting <code>%AppData%/Captura</code> folder.</p>
+</article>

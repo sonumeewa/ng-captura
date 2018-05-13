@@ -1,0 +1,45 @@
+<article class="container">
+  <h1 class="display-4">Hotkeys</h1>
+  
+  <p>System-wide key combinations which work even when Captura is not in focus.</p>
+  
+  <br>
+
+  <p><img alt="Hotkeys" src="http://i.imgur.com/4mE6rXO.png" style="max-width:100%;"></p>
+  
+  <br>
+
+  <ul>
+    <li>You can enable/disable hotkeys using the checkboxes next to them.</li>
+    <li>You can get back the Default hotkeys by pressing the Reset button.</li>
+    <li>On startup, a message is shown if hotkeys cannot be registered.</li>
+    <li>Unregistered hotkeys are shown Red.</li>  
+  </ul>
+  
+  <h3>Default Hotkey Values</h3>
+
+  <br>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Action</th>
+        <th>Default Hotkey</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotkey of hotkeys">
+        <td>{{hotkey.name}}</td>
+        <td>{{hotkey.defaultCombination}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Changing a Hotkey</h3>
+  
+  <ol>
+    <li>Click on the Hotkey you want to change.</li>
+    <li>Press the new Hotkey combination.</li>
+    <li>Press <code>Esc</code> if you want to cancel changing.</li>
+  </ol>
+</article>

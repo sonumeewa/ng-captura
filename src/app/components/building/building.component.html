@@ -1,0 +1,83 @@
+<article class="container">
+  <h1 class="display-4">Building</h1>
+
+  <h3>Requirements</h3>
+  
+  <ul>
+    <li><a href="https://visualstudio.com" target="_blank">Visual Studio 2017</a> or greater is recommended. Can also be built using Visual Studio 2015 using <a href="https://www.nuget.org/packages/Microsoft.Net.Compilers" target="_blank">Microsoft.Net.Compilers</a> nuget package to support compilation of C# 7.</li>
+    <li>.Net Framework v4.6.1 is required.</li>
+  </ul>
+  
+  <h3>Api Keys</h3>
+  
+  <p>Api Keys are loaded from user environment variables during development and embedded in Release builds if using Cake.</p>
+  
+  <br>
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Service</th>
+        <th>Environment Variable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Imgur</td>
+        <td><code>imgur_client_id</code></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>FFMpeg</h3>
+  
+  <p>FFMpeg can be downloaded from within the app.</p>
+
+  <h3>Building using Cake</h3>
+  
+  <p>We use Cake (C# Make) to automate the build process.</p>
+  <p>To do a Release build, open powershell in project folder and type: <code>./build.ps1</code>.</p>
+  <p>The build is then available in the <code>Output</code> folder.</p>
+  
+  <h4>Options Supported by build script</h4>
+
+  <br>
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Option</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>-version</code></td>
+        <td>Build version. <code>AssemblyInfo.cs</code> files are updated with this value during build.</td>
+      </tr>
+      <tr>
+        <td><code>-configuration</code></td>
+        <td>Configuration: <em>Release</em> or <em>Debug</em></td>
+      </tr>
+      <tr>
+        <td><code>-target</code></td>
+        <td>The Task to run in the build script. See <code>build.cake</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>e.g. <code>./build.ps1 -target "Pack-Setup" -version 5.6.0</code></p>
+  
+  <h3>Building Manually</h3>
+  
+  <p>Some extra things that need to be done when building manually.</p>
+  
+  <h4>NuGet</h4>
+  
+  <p>Restore NuGet packages.</p>
+  
+  <h4>Audio</h4>
+  
+  <p>Download <a href="http://www.un4seen.com/download.php?bass24" target="_blank">BASS Audio library</a> and <a href="http://www.un4seen.com/download.php?bassmix24" target="_blank">BASSmix</a>.</p>
+  <p><code>bass.dll</code> and <code>bassmix.dll</code> (x86 versions, since Capture runs in <code>Prefer32Bit</code> mode) need to be placed in the same directory as <code>Captura.exe</code>.</p>
+</article>

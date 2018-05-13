@@ -1,0 +1,497 @@
+<article class="container">
+  <h1 class="display-4">Changelog</h1>
+  <small>Changelog is not maintained before v2.0.0</small>
+
+  <br><br><br>
+
+  <div class="row">
+    <div class="col-auto">
+      <div class="sticky-top" style="top: 10px">
+        <button [class.active]="template == vNext" (click)="template = vNext" class="btn btn-light btn-block px-4">vNext</button>
+        <button [class.active]="template == v701" (click)="template = v701" class="btn btn-light btn-block px-4">v7.0.1</button>
+        <button [class.active]="template == v700" (click)="template = v700" class="btn btn-light btn-block px-4">v7.0.0</button>
+        <button [class.active]="template == v601" (click)="template = v601" class="btn btn-light btn-block px-4">v6.0.1</button>
+        <button [class.active]="template == v600" (click)="template = v600" class="btn btn-light btn-block px-4">v6.0.0</button>
+        <button [class.active]="template == v501" (click)="template = v501" class="btn btn-light btn-block px-4">v5.0.1</button>
+        <button [class.active]="template == v500" (click)="template = v500" class="btn btn-light btn-block px-4">v5.0.0</button>
+        <button [class.active]="template == v422" (click)="template = v422" class="btn btn-light btn-block px-4">v4.2.2</button>
+        <button [class.active]="template == v421" (click)="template = v421" class="btn btn-light btn-block px-4">v4.2.1</button>
+        <button [class.active]="template == v420" (click)="template = v420" class="btn btn-light btn-block px-4">v4.2.0</button>
+        <button [class.active]="template == v410" (click)="template = v410" class="btn btn-light btn-block px-4">v4.1.0</button>
+        <button [class.active]="template == v400" (click)="template = v400" class="btn btn-light btn-block px-4">v4.0.0</button>
+        <button [class.active]="template == v350" (click)="template = v350" class="btn btn-light btn-block px-4">v3.5.0</button>
+        <button [class.active]="template == v340" (click)="template = v340" class="btn btn-light btn-block px-4">v3.4.0</button>
+        <button [class.active]="template == v330" (click)="template = v330" class="btn btn-light btn-block px-4">v3.3.0</button>
+        <button [class.active]="template == v320" (click)="template = v320" class="btn btn-light btn-block px-4">v3.2.0</button>
+        <button [class.active]="template == v310" (click)="template = v310" class="btn btn-light btn-block px-4">v3.1.0</button>
+        <button [class.active]="template == v300" (click)="template = v300" class="btn btn-light btn-block px-4">v3.0.0</button>
+        <button [class.active]="template == v200" (click)="template = v200" class="btn btn-light btn-block px-4">v2.0.0</button>
+      </div>
+    </div>
+    <div class="col">
+      <ng-container *ngTemplateOutlet="template"></ng-container>
+    </div>
+  </div>
+  
+  <ng-template #vNext>
+    <h2>vNext</h2>
+
+    <ul>
+      <li>Added option to Preview while recording.</li>
+      <li>Added a Discard video output type which does not record to file (for testing with Preview).</li>
+      <li><strong>fix:</strong> <code>captura shot</code> failing for fullscreen screenshots.</li>
+      <li>Separate colors for Right and Middle mouse click overlays.</li>
+      <li>Support for custom image overlays.</li>
+      <li>Stop Window capture when Window is closed.</li>
+      <li><strong>fix:</strong> Mouse cursor position is wrong after moving region selector.</li>
+      <li><strong>fix:</strong> Unable to resize Region Selector after stopping recording.</li>
+      <li><code>Duration</code> is considered after <code>Start Delay</code> has elapsed.</li>
+      <li><code>Duration</code> and <code>Start Delay</code> are stored in Settings.</li>
+      <li>Added option to use System Proxy.</li>
+      <li><strong>fix:</strong> Mouse Cursor moves slowly when recording from Command-line</li>
+      <li>Webcam capture support from Command-line.</li>
+      <li>Added Chinese (Simplified) translation.</li>
+      <li>Overlay customization from UI is used in Console.</li>
+      <li>Desktop Duplication is supported with Variable Frame Rate Gif.</li>
+      <li><strong>fix:</strong> Desktop Duplication recording does not crash when Screen enters non-recordable mode. e.g. Sign-in screen.</li>
+    </ul>
+  </ng-template>
+
+  <ng-template #v701>
+    <h2>v7.0.1</h2>
+    
+    <ul>
+      <li><strong>fix:</strong> FFMpeg download link gives 404.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v700>
+    <h2>v7.0.0</h2>
+    
+    <ul>
+      <li>Improved efficiency of specific screen capture.</li>
+      <li>The window is repositioned on startup if it is outside desktop bounds.</li>
+      <li>Handle errors when copying to clipboard.</li>
+      <li>Localization is done using JSON files.</li>
+      <li><strong>fix:</strong> Wrong full screen region size.</li>
+      <li>Refresh updates the full screen region size.</li>
+      <li>Desktop Duplication is now shown as a video source.</li>
+      <li>Reuse <code>Image</code> and <code>Graphics</code> objects without disposing to reduce CPU usage.</li>
+      <li>Better organisation in Settings file: <code>Captura.json</code>.</li>
+      <li>Prevent crashes when possible.</li>
+      <li><strong>fix:</strong> Unable to precisely resize Region Selector on high DPI.</li>
+      <li>Option to Hide Region Selector during recording.</li>
+      <li>Lagarith codec support through SharpAvi (Install codec manually, disable Null Frames and select RGB as format).</li>
+    </ul>
+    
+    <h5>Overlays</h5>
+    
+    <ul>
+      <li>
+        Added support for Custom Text overlays.
+        <code>%elapsed%</code> can be used as a replacement token for the time elapsed.
+      </li>
+      <li>Opacity support for Webcam overlay.</li>
+      <li>Remember selected webcam.</li>
+      <li>Clicks &amp; Keystrokes can be turned on/off during capture</li>
+      <li>Hotkeys to Toggle Click and Keystrokes overlays (Alpha)</li>
+    </ul>
+    
+    <h5>FFMpeg</h5>
+    
+    <ul>
+      <li>Added Custom format for FFMpeg. Can be used by selecting encoder as <code>FFMpeg &gt; Custom</code> and customizing arguments in <code>Config &gt; FFMpeg</code>.</li>
+      <li>Alpha: Live Streaming</li>
+      <li>Alpha: NVENC support</li>
+      <li><strong>fix:</strong> Unable to record multiple screens with total width or height indivisible by 2.</li>
+      <li>FFMpeg can be installed from the commandline.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v601>
+    <h2>v6.0.1</h2>
+
+    <ul>
+      <li><strong>fix:</strong> High memory usage when recording a specific screen.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v600>
+    <h2>v6.0.0</h2>
+    
+    <ul>
+      <li>Improved consistency and animations in the UI.</li>
+      <li><strong>fix:</strong> Prevent Variable Frame Rate GIF with Desktop Duplication.</li>
+      <li>Improve audio-video synchronisation.</li>
+      <li><strong>fix:</strong> Screen recording with Desktop Duplication has an extra black region.</li>
+      <li><strong>fix:</strong> Error after recording without Desktop Duplication after trying to record with when it is not supported.</li>
+      <li><strong>fix:</strong> Error when Region Selector is taken out of visible bounds during recording.</li>
+      <li>Added a simple drawing canvas.</li>
+      <li><strong>fix:</strong> Using Screenshot resize resulted in blank images.</li>
+      <li>Pause recording on Sleep/Hibernate.</li>
+    </ul>
+
+    <h5>Webcam</h5>
+
+    <ul>
+      <li><strong>fix:</strong> Webcam preview fails when Captura is run on dedicated graphics processor.</li>
+      <li>Webcam drawn as overlay.</li>
+      <li>Added <code>Configure | Webcam</code> for position and size of Webcam overlay.</li>
+      <li>Opening Preview window is optional.</li>
+      <li>Capture image button on header.</li>
+    </ul>
+  
+    <h5>MouseKeyHook</h5>
+  
+    <ul>
+      <li>MouseKeyHook customizations embedded in Config menu.</li>
+      <li>Multipliers shown for repeated keystrokes.</li>
+      <li>History of selected no of previous keystrokes displayed in overlay.</li>
+      <li><strong>fix:</strong> Corrected Keystrokes Center positioning.</li>
+    </ul>
+  
+    <h5>Installation</h5>
+  
+    <ul>
+      <li>Moving to standard type of installer where you the user has control over options.</li>
+      <li>Chocolatey upgrade is now used again.</li>
+    </ul>
+  
+    <h5>Translation</h5>
+  
+    <ul>
+      <li>Language selection moved to Configure tab.</li>
+      <li>Added lots of translations.</li>
+    </ul>
+  </ng-template>
+ 
+  <ng-template #v501>
+    <h2>v5.0.1</h2>
+  
+    <ul>
+      <li>Added Spanish Translation.</li>
+      <li>Translations don't specify the country.</li>
+    </ul>
+  </ng-template>
+ 
+  <ng-template #v500>
+    <h2>v5.0.0</h2>
+  
+    <ul>
+      <li>Include Cursor cannot be changed during capture.</li>
+      <li>Default hotkeys made simpler.</li>
+      <li>Authenticated Proxy support.</li>
+      <li>Settings saved in <code>APPDATA/Captura/Settings.json</code>. Recent Items and Hotkeys saved in separate files.</li>
+      <li><strong>fix:</strong> Variable Frame Rate Gif delay between frames.</li>
+      <li><strong>fix:</strong> Pausing with Variable Frame Rate Gif.</li>
+      <li><strong>fix:</strong> Region highlight borders not cleared after snapping.</li>
+      <li>Shows error when unable to register hotkeys on start.</li>
+      <li>Copy as Path option on Recent Items.</li>
+      <li>Added support for using <strong>Desktop Duplication API</strong>.</li>
+      <li>Removed Folder Writer due to high system resource consumption.</li>
+      <li>Dropped frames are compensated with duplicated frames.</li>
+      <li>MessageBox shown and Log file created on crash.</li>
+      <li>Update Check</li>
+    </ul>
+  
+    <h5>UI</h5>
+  
+    <ul>
+      <li>Tabbed Configure page with Hotkeys and Extras embedded.</li>
+      <li>Number Boxes to specify size of Region Selector.</li>
+      <li>Added a Dark Theme.</li>
+      <li>Removed Minimize to Tray checkbox.</li>
+      <li>Removed selection of Topbar color.</li>
+      <li>Added a Minimize to Tray button.</li>
+    </ul>
+  
+    <h5>Change in Audio/Video Sources</h5>
+  
+    <ul>
+      <li><strong>[Desktop]</strong> under <strong>Window</strong> changed to <strong>Full Screeb</strong> under <strong>Screen</strong>.</li>
+      <li><strong>Screen</strong> kind is always visible.</li>
+      <li><strong>No Video</strong> renamed to <strong>Only Audio</strong>.</li>
+      <li><strong>Audio alone Codecs</strong> shown under <strong>Only Audio</strong> source.</li>
+      <li><strong>WebCam</strong> is selected on the Main Window.</li>
+      <li>Window recording is of the initial size of window. Any resizing of the window is scaled to fit.</li>
+    </ul>
+  
+    <h5>Console</h5>
+  
+    <ul>
+      <li><strong>fix:</strong> Video dimensions made even when capturing region from console.</li>
+      <li><strong>fix:</strong> Error running console with input redirected.</li>
+      <li><strong>fix:</strong> Use culture invariant string to represent region rectangle in console.</li>
+    </ul>
+  
+    <h5>ScreenShots</h5>
+  
+    <ul>
+      <li>ScreenShot Save Location and Format options on Main Tab.</li>
+      <li>Support for uploading ScreenShots to <strong>Imgur</strong>.</li>
+      <li>Option to hide MainWindow on <strong>Full Screen</strong> ScreenShot.</li>
+    </ul>
+  
+    <h5>FFMpeg</h5>
+  
+    <ul>
+      <li>FFMpeg is the default encoder.</li>
+      <li>Audio and Video muxed in Realtime in FFMpeg capture.</li>
+      <li>Added FFMpeg Downloader.</li>
+      <li>Added FFMpeg HEVC Intel QSV encoder.</li>
+      <li>FFMpeg is always shown in encoders list.</li>
+      <li>A message with actions to take shown when trying to use FFMpeg in its absence.</li>
+    </ul>
+  </ng-template>
+ 
+  <ng-template #v422>
+    <h2>v4.2.2</h2>
+  
+    <p><strong>Fix:</strong> Error notification after continuous recordings.</p>
+  </ng-template>
+ 
+  <ng-template #v421>
+    <h2>v4.2.1</h2>
+  
+    <p><strong>Fix</strong>: Crash when Snap to Window is clicked without dragging. It now Snaps to the window below.</p>
+  </ng-template>
+ 
+  <ng-template #v420>
+    <h2>v4.2.0</h2>
+    
+    <ul>
+      <li><strong>fix:</strong> Fix thread exceptions when showing MessageBox.</li>
+      <li><strong>fix:</strong> NullReferenceException happening with Notifications.</li>
+      <li><strong>fix:</strong> High CPU usage in Recording and Paused states.</li>
+      <li>Option to <strong>Customize Clicks and Keystrokes overlay</strong>.</li>
+      <li>Better default style for the Clicks and Keystrokes overlay.</li>
+      <li>Added Window capture Background Color.</li>
+      <li>Added Opus support for FFMpeg audio alone capture.</li>
+      <li>Improved Folder Browser Dialog (Contributed by <a href="https://github.com/armujahid" target="_blank">@armujahid</a>).</li>
+      <li>Added a circle around the Cursor, Clicks and Keys toggle options to improve accessibility.</li>
+      <li>Gif Variable Frame Rate setting defaults to True.</li>
+      <li>Added FFMpeg Logging. Openable from About tab.</li>
+      <li>Resize/Rotate/Flip transforms now only for ScreenShots.</li>
+    </ul>
+    
+    <h5>Extras</h5>
+    
+    <p>A new window openable from About tab for additional settings:</p>
+    
+    <ul>
+      <li>Accent Color</li>
+      <li>Top Bar Color</li>
+      <li>Setting Region Border Thickness</li>
+      <li>Setting ScreenShot Notification Timeout</li>
+      <li>Selecting Video Background Color</li>
+      <li>Copying output file to Clipboard</li>
+      <li>Making Main Window always to Top</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v410>
+    <h2>v4.1.0</h2>
+    
+    <ul>
+      <li><strong>fix:</strong> Region Selector on High DPI.</li>
+      <li><strong>fix:</strong> Selected Video Writer Kind null if FFMpeg folder is removed when currently selected as Video Writer Kind.</li>
+      <li><strong>fix:</strong> Restores in normal state from <code>Minimize to Tray</code>.</li>
+      <li>Added a Close button on Region Selector. When closed, Selected Video Source Kind changes to Window.</li>
+      <li>Using MUI as a library.</li>
+      <li>Output FileName support for start and shot commands.</li>
+      <li>CommamdLine support for Transparent ScreenShots.</li>
+      <li>New Encoder: Encode to Folder.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v400>
+    <h2>v4.0.0</h2>
+    
+    <h5>Known Issues</h5>
+    <ul>
+      <li>
+        High memory usage when encoding Gif.
+        <strong>Workaround:</strong> Use Variable Frame Rate.
+      </li>
+    </ul>
+    
+    <h5>What's New</h5>
+    
+    <ul>
+      <li>Added <a routerLink="/cmdline">Command-line support</a>.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v350>
+    <h2>v3.5.0</h2>
+    
+    <h5>What's New</h5>
+    
+    <ul>
+      <li><strong>fix:</strong> Crash when Recording stops automatically on reaching Duration.</li>
+      <li><strong>fix:</strong> Recording cannot start if Delay is set.</li>
+      <li><strong>fix:</strong> Optional libraries don't load on Chocolatey.</li>
+      <li>Localization using RESX files. <a routerLink="/translation">Translations</a> are welcome.</li>
+      <li>Scroll to change values in Number boxes.</li>
+      <li>Removed NAudio support.</li>
+      <li>Items in the Recent list are persisted only if the files exist.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v340>
+    <h2>v3.4.0</h2>
+    
+    <h5>Known Issues</h5>
+    
+    <ul>
+      <li>Crash on recording stopped by Capture Duration.</li>
+      <li>Recording cannot start if delay is set.</li>
+      <li>Optional libraries don't load on Chocolatey.</li>
+    </ul>
+    
+    <h5>What's New</h5>
+    
+    <ul>
+      <li><strong>fix:</strong> App crashes on Startup in Release builds.</li>
+      <li>Expanded/Collapsed state is persisted.</li>
+      <li>Added MessageBoxes for showing some errors.</li>
+      <li><strong>fix:</strong> Cache Images in <code>ScreenShotBalloon</code>. Fixes the unability to delete files.</li>
+      <li>Unconstrained Gif renamed to Variable Frame Rate.</li>
+      <li>Confirm RecentItem deletion.</li>
+      <li><strong>fix:</strong> After recording tasks can run before saving is completed.</li>
+      <li>Asks before Exit during Recording.</li>
+      <li><strong>fix:</strong> Hide Keystrokes and Clicks capture buttons when <code>MouseKeyHook</code> library is not present.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v330>
+    <h2>v3.3.0</h2>
+    
+    <h5>Known Issues</h5>
+    
+    <ul>
+      <li>App may crash on Startup</li>
+    </ul>
+    
+    <h5>What's New</h5>
+    
+    <ul>
+      <li><strong>fix:</strong> h264 (FFmpeg Mp4) encoder requires video dimensions to be even.</li>
+      <li><strong>Webcam Support:</strong> Not as a Video Source but as a standalone window which can be captured using standard methods.</li>
+      <li>Redesigned RegionSelector.</li>
+      <li>Implemented RegionSelector <strong>Snap to Window</strong>.</li>
+      <li><strong>fix:</strong> Prevent appearance of RegionSelector in Window list.</li>
+      <li><strong>fix:</strong> Prevent RegionSelector from being Maximized.</li>
+      <li><strong>fix:</strong> Heavy memory usage with FFmpeg.</li>
+      <li>Collapsed/Expanded state of Main Window is persisted.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v320>
+    <h2>v3.2.0</h2>
+    
+    <ul>
+      <li>.Net 4.6.1 is required.</li>
+      <li>Remembers last used Audio/Video Codecs and Sources.</li>
+      <li>Remembers Window Location.</li>
+      <li>Remembers ScreenShot Save target and Image Format.</li>
+      <li>Experimetal Gif encoding using FFmpeg.</li>
+      <li>Rotate/Flip/Resize Transforms for ScreenShot/Video.</li>
+      <li><strong>fix:</strong> FFmpeg Command-line args when encoding both audio and video.</li>
+      <li><strong>fix:</strong> WASAPI Format error on loopback.</li>
+    </ul>
+    
+    <h5>Recent List</h5>
+    
+    <ul>
+      <li>Recent List persists items (max items can be configured).</li>
+      <li>Added Recent list Clear button.</li>
+      <li><strong>fix:</strong> Scolling in Recent List.</li>
+    </ul>
+    
+    <h5>System Tray</h5>
+    
+    <ul>
+      <li>Icons in Context menu.</li>
+      <li>Double click to show/hide MainWindow.</li>
+      <li>Improved notifications.</li>
+      <li>ScreenShot notification displays the image.</li>
+      <li>Tray icon changes depending on the Recording state.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v310>
+    <h2>v3.1.0</h2>
+    
+    <ul>
+      <li><code>bass.dll</code> and <code>bassmix.dll</code> included in release.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v300>
+    <h2>v3.0.0</h2>
+    
+    <ul>
+      <li>New Colors</li>
+      <li>Added a button to reset hotkeys</li>
+      <li>Hotkeys can be disabled.</li>
+      <li>Expanded State on Launch.</li>
+      <li>Hotkeys for ScreenShot of Desktop and Active Window.</li>
+      <li>Option to disable system tray notifications.</li>
+      <li>NAudio fallback if BASS is not present.</li>
+      <li>Implemented Audio and Video Quality for FFmpeg.</li>
+      <li>Fix errors in NumericBox.</li>
+      <li>Remove Video BackgroundColor.</li>
+      <li>Added Taskbar Thumb buttons.</li>
+      <li>Keystrokes displayed on lower left.</li>
+      <li>Embedded the Screna.* Extension libraries' code.</li>
+      <li>Multiple output formats for Audio only recording.</li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #v200>
+    <h2>v2.0.0</h2>
+    
+    <ul>
+      <li>Only <em>Screna.dll</em> is a required dependency.</li>
+      <li>Manually assignable Hotkeys for Starting/Stopping or Pausing/Resuming Recording and ScreenShot.</li>
+      <li>IncludeCursor defaults to True.</li>
+      <li>Recent List shows latest items first.</li>
+      <li>Improved MouseKeyHook Overlay.</li>
+      <li>Added Fallback when Transparent Window ScreenShot fails.</li>
+      <li>Added Taskbar Overlay while Recording or Paused.</li>
+      <li>Disable Configuration during Capture.</li>
+      <li>Alpha support for Localisation.</li>
+      <li>Recording both Microphone input and Speaker output.</li>
+    </ul>
+    
+    <h5>System Tray</h5>
+    
+    <ul>
+      <li>Video/Audio Recorded, ScreenShot Taken notifications.</li>
+      <li>Notifications can be clicked to open corresponding file.</li>
+      <li>Start/Stop/Pause/Resume Recording or Take ScreenShots or Exit from Tray.</li>
+      <li>Added Minimize to System Tray option.</li>
+    </ul>
+    
+    <h5>Video/Audio Writers</h5>
+    
+    <ul>
+      <li>Video Witers grouped by Kind.</li>
+      <li>Added FFmpeg encoding support (using ffmpeg.exe) (optional) (realtime when audio or video alone, post-processing when both).</li>
+      <li>Dropped SharpAvi LAME Mp3 encoding support.</li>
+      <li>Mp3 encoding supported using FFmpeg.</li>
+    </ul>
+    
+    <h5>Region Capture</h5>
+    
+    <ul>
+      <li>Region as Video Kind.</li>
+      <li>Removed functionality of using RegionSelector in Window Video Kind.</li>
+      <li>RegionSelector is more visible.</li>
+      <li>Region Selector displays only when selected kind is Region.</li>
+      <li>Region Selector can be moved but not resized during capture.</li>
+      <li>Borders and Header of Region Selector are ignored in Region capture.</li>
+    </ul>
+  </ng-template>
+</article>
