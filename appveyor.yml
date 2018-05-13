@@ -6,6 +6,7 @@ cache:
   - node_modules
 
 install:
+  - ps: Install-Product node 8.11
   - npm install -g @angular/cli
   - npm install
 
