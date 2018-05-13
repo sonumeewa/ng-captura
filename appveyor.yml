@@ -1,0 +1,36 @@
+environment:
+  access_token:
+    secure: c1r9fMnxBX4DW0SvZ4V/5Nucdi8pzA2YiQ/wsiyfjIY19q4RyKCYZTtU+2YQbiLT
+
+cache:
+  - node_modules
+
+install:
+  - npm install -g @angular/cli
+  - npm install
+
+build_script:
+  - ng build --prod --base-href '/Captura/'
+  - ps: Rename-Item dist/index.html 404.html
+  - ps: New-Item -Path dist -Name .nojekyll -ItemType File
+
+before_deploy:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "mathew.sachin.git@outlook.com"
+  - git config --global user.name "Mathew Sachin"
+
+deploy_script:
+  # Clone target repository
+  - git clone -b gh-pages https://github.com/MathewSachin/Captura.git _target
+
+  # Move repository to output folder
+  - ps: Move-Item _target\.git dist
+
+  # Commit
+  - cd dist
+  - git add -A
+  - git commit -m "CI Update"
+
+  # Push changes
+  - git push
