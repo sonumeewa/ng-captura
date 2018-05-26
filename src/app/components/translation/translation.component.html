@@ -23,17 +23,17 @@
 
   <br>
 
-  <table class="table">
+  <table class="table table-responsive">
     <thead class="thead-light">
       <tr>
         <th>Language</th>
-        <th>Locale ID</th>
+        <th style="white-space: nowrap;">Locale ID</th>
         <th>Contributors</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let translation of translations">
-        <td>{{translation.language}}</td>
+        <td style="white-space: nowrap;">{{translation.language}}</td>
         <td>{{translation.id}}</td>
         <td>
           <span *ngFor="let translator of translation.translators; index as i">

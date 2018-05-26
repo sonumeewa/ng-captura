@@ -22,19 +22,19 @@
 
   <br>
 
-  <table class="table">
+  <table class="table table-responsive">
     <thead class="thead-light">
       <tr>
         <th>Name</th>
-        <th>Website</th>
         <th>Amount</th>
+        <th>Website</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let donation of donations">
         <td>{{donation.name}}</td>
-        <td><a *ngIf="donation.website" href="{{donation.website}}" target="_blank">{{donation.website}}</a></td>
         <td>{{donation.amount}}</td>
+        <td><a *ngIf="donation.website" href="{{donation.website}}" target="_blank">{{donation.website}}</a></td>
       </tr>
     </tbody>
   </table>

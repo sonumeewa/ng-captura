@@ -4,34 +4,31 @@
 
   <br><br><br>
 
-  <div class="row">
-    <div class="col-auto">
-      <div class="sticky-top" style="top: 10px">
-        <button [class.active]="template == vNext" (click)="template = vNext" class="btn btn-light btn-block px-4">vNext</button>
-        <button [class.active]="template == v701" (click)="template = v701" class="btn btn-light btn-block px-4">v7.0.1</button>
-        <button [class.active]="template == v700" (click)="template = v700" class="btn btn-light btn-block px-4">v7.0.0</button>
-        <button [class.active]="template == v601" (click)="template = v601" class="btn btn-light btn-block px-4">v6.0.1</button>
-        <button [class.active]="template == v600" (click)="template = v600" class="btn btn-light btn-block px-4">v6.0.0</button>
-        <button [class.active]="template == v501" (click)="template = v501" class="btn btn-light btn-block px-4">v5.0.1</button>
-        <button [class.active]="template == v500" (click)="template = v500" class="btn btn-light btn-block px-4">v5.0.0</button>
-        <button [class.active]="template == v422" (click)="template = v422" class="btn btn-light btn-block px-4">v4.2.2</button>
-        <button [class.active]="template == v421" (click)="template = v421" class="btn btn-light btn-block px-4">v4.2.1</button>
-        <button [class.active]="template == v420" (click)="template = v420" class="btn btn-light btn-block px-4">v4.2.0</button>
-        <button [class.active]="template == v410" (click)="template = v410" class="btn btn-light btn-block px-4">v4.1.0</button>
-        <button [class.active]="template == v400" (click)="template = v400" class="btn btn-light btn-block px-4">v4.0.0</button>
-        <button [class.active]="template == v350" (click)="template = v350" class="btn btn-light btn-block px-4">v3.5.0</button>
-        <button [class.active]="template == v340" (click)="template = v340" class="btn btn-light btn-block px-4">v3.4.0</button>
-        <button [class.active]="template == v330" (click)="template = v330" class="btn btn-light btn-block px-4">v3.3.0</button>
-        <button [class.active]="template == v320" (click)="template = v320" class="btn btn-light btn-block px-4">v3.2.0</button>
-        <button [class.active]="template == v310" (click)="template = v310" class="btn btn-light btn-block px-4">v3.1.0</button>
-        <button [class.active]="template == v300" (click)="template = v300" class="btn btn-light btn-block px-4">v3.0.0</button>
-        <button [class.active]="template == v200" (click)="template = v200" class="btn btn-light btn-block px-4">v2.0.0</button>
-      </div>
-    </div>
-    <div class="col">
-      <ng-container *ngTemplateOutlet="template"></ng-container>
-    </div>
+  <div style="white-space: nowrap; overflow: auto">
+    <button [class.active]="template == vNext" (click)="template = vNext" class="btn btn-light mb-2 px-4">vNext</button>
+    <button [class.active]="template == v701" (click)="template = v701" class="btn btn-light mb-2 px-4">v7.0.1</button>
+    <button [class.active]="template == v700" (click)="template = v700" class="btn btn-light mb-2 px-4">v7.0.0</button>
+    <button [class.active]="template == v601" (click)="template = v601" class="btn btn-light mb-2 px-4">v6.0.1</button>
+    <button [class.active]="template == v600" (click)="template = v600" class="btn btn-light mb-2 px-4">v6.0.0</button>
+    <button [class.active]="template == v501" (click)="template = v501" class="btn btn-light mb-2 px-4">v5.0.1</button>
+    <button [class.active]="template == v500" (click)="template = v500" class="btn btn-light mb-2 px-4">v5.0.0</button>
+    <button [class.active]="template == v422" (click)="template = v422" class="btn btn-light mb-2 px-4">v4.2.2</button>
+    <button [class.active]="template == v421" (click)="template = v421" class="btn btn-light mb-2 px-4">v4.2.1</button>
+    <button [class.active]="template == v420" (click)="template = v420" class="btn btn-light mb-2 px-4">v4.2.0</button>
+    <button [class.active]="template == v410" (click)="template = v410" class="btn btn-light mb-2 px-4">v4.1.0</button>
+    <button [class.active]="template == v400" (click)="template = v400" class="btn btn-light mb-2 px-4">v4.0.0</button>
+    <button [class.active]="template == v350" (click)="template = v350" class="btn btn-light mb-2 px-4">v3.5.0</button>
+    <button [class.active]="template == v340" (click)="template = v340" class="btn btn-light mb-2 px-4">v3.4.0</button>
+    <button [class.active]="template == v330" (click)="template = v330" class="btn btn-light mb-2 px-4">v3.3.0</button>
+    <button [class.active]="template == v320" (click)="template = v320" class="btn btn-light mb-2 px-4">v3.2.0</button>
+    <button [class.active]="template == v310" (click)="template = v310" class="btn btn-light mb-2 px-4">v3.1.0</button>
+    <button [class.active]="template == v300" (click)="template = v300" class="btn btn-light mb-2 px-4">v3.0.0</button>
+    <button [class.active]="template == v200" (click)="template = v200" class="btn btn-light mb-2 px-4">v2.0.0</button>
   </div>
+
+  <br>
+
+  <ng-container *ngTemplateOutlet="template"></ng-container>
   
   <ng-template #vNext>
     <h2>vNext</h2>

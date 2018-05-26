@@ -22,24 +22,23 @@
     <li>If <code>AttachConsole</code> is used, the written content interferes with console prompt.</li>
     <li>And more ...</li>
   </ul>
+
+  <br><hr>
   
   <h2>Implemented Verbs</h2>
 
   <br>
 
-  <div class="row">
-    <div class="col-auto">
-      <div class="sticky-top" style="top: 10px">
-        <button [class.active]="verbTemplate == verbNone" (click)="verbTemplate = verbNone" class="btn btn-light btn-block px-4">No Verb</button>
-        <button [class.active]="verbTemplate == verbList" (click)="verbTemplate = verbList" class="btn btn-light btn-block px-4">list</button>
-        <button [class.active]="verbTemplate == verbShot" (click)="verbTemplate = verbShot" class="btn btn-light btn-block px-4">shot</button>
-        <button [class.active]="verbTemplate == verbStart" (click)="verbTemplate = verbStart" class="btn btn-light btn-block px-4">start</button>
-      </div>
-    </div>
-    <div class="col">
-      <ng-container *ngTemplateOutlet="verbTemplate"></ng-container>
-    </div>
+  <div style="white-space: nowrap; overflow: auto">
+    <button [class.active]="verbTemplate == verbNone" (click)="verbTemplate = verbNone" class="btn btn-light mb-2 px-4">No Verb</button>
+    <button [class.active]="verbTemplate == verbList" (click)="verbTemplate = verbList" class="btn btn-light mb-2 px-4">list</button>
+    <button [class.active]="verbTemplate == verbShot" (click)="verbTemplate = verbShot" class="btn btn-light mb-2 px-4">shot</button>
+    <button [class.active]="verbTemplate == verbStart" (click)="verbTemplate = verbStart" class="btn btn-light mb-2 px-4">start</button>
   </div>
+
+  <br>
+
+  <ng-container *ngTemplateOutlet="verbTemplate"></ng-container>
 
   <ng-template #verbNone>
     <h4>Without a Verb</h4>
@@ -236,25 +235,24 @@
     <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">-</span><span class="pl-k">-le</span>ngth <span class="pl-c1"><span class="pl-c1">10</span></span> <span class="pl-k">--</span>cursor <span class="pl-k">--</span>keys <span class="pl-k">--</span>speaker<span class="pl-k">=</span><span class="pl-c1"><span class="pl-c1">0</span></span></pre></div>
   </ng-template>
 
+  <br><hr>
+
   <h2>Using the Source Argument</h2>
 
   <br>
-  
-  <div class="row">
-    <div class="col-auto">
-      <div class="sticky-top" style="top: 10px">
-        <button [class.active]="sourceTemplate == sourceDesktop" (click)="sourceTemplate = sourceDesktop" class="btn btn-light btn-block px-4">Desktop</button>
-        <button [class.active]="sourceTemplate == sourceRegion" (click)="sourceTemplate = sourceRegion" class="btn btn-light btn-block px-4">Region</button>
-        <button [class.active]="sourceTemplate == sourceScreen" (click)="sourceTemplate = sourceScreen" class="btn btn-light btn-block px-4">Screen</button>
-        <button [class.active]="sourceTemplate == sourceNoVideo" (click)="sourceTemplate = sourceNoVideo" class="btn btn-light btn-block px-4">No Video</button>
-        <button [class.active]="sourceTemplate == sourceWindow" (click)="sourceTemplate = sourceWindow" class="btn btn-light btn-block px-4">Window</button>
-      </div>
-    </div>
-    <div class="col">
-      <ng-container *ngTemplateOutlet="sourceTemplate"></ng-container>
-    </div>
+
+  <div style="white-space: nowrap; overflow: auto">
+    <button [class.active]="sourceTemplate == sourceDesktop" (click)="sourceTemplate = sourceDesktop" class="btn btn-light mb-2 px-4">Desktop</button>
+    <button [class.active]="sourceTemplate == sourceRegion" (click)="sourceTemplate = sourceRegion" class="btn btn-light mb-2 px-4">Region</button>
+    <button [class.active]="sourceTemplate == sourceScreen" (click)="sourceTemplate = sourceScreen" class="btn btn-light mb-2 px-4">Screen</button>
+    <button [class.active]="sourceTemplate == sourceNoVideo" (click)="sourceTemplate = sourceNoVideo" class="btn btn-light mb-2 px-4">No Video</button>
+    <button [class.active]="sourceTemplate == sourceWindow" (click)="sourceTemplate = sourceWindow" class="btn btn-light mb-2 px-4">Window</button>
   </div>
-  
+
+  <br>
+
+  <ng-container *ngTemplateOutlet="sourceTemplate"></ng-container>
+    
   <ng-template #sourceDesktop>
     <h4>Desktop</h4>
     
@@ -303,23 +301,22 @@
     <p>Available only with <code>captura shot</code>.</p>
     <p>You can use <code>captura list</code> to check visible window handles.</p>
   </ng-template>
+
+  <br><hr>
   
   <h2>Using the Encoder argument</h2>
 
   <br>
 
-  <div class="row">
-    <div class="col-auto">
-      <div class="sticky-top" style="top: 10px">
-        <button [class.active]="encoderTemplate == encoderGif" (click)="encoderTemplate = encoderGif" class="btn btn-light btn-block px-4">Gif</button>
-        <button [class.active]="encoderTemplate == encoderSharpAvi" (click)="encoderTemplate = encoderSharpAvi" class="btn btn-light btn-block px-4">SharpAvi</button>
-        <button [class.active]="encoderTemplate == encoderFFMpeg" (click)="encoderTemplate = encoderFFMpeg" class="btn btn-light btn-block px-4">FFMpeg</button>
-      </div>
-    </div>
-    <div class="col">
-      <ng-container *ngTemplateOutlet="encoderTemplate"></ng-container>
-    </div>
+  <div style="white-space: nowrap; overflow: auto">
+    <button [class.active]="encoderTemplate == encoderGif" (click)="encoderTemplate = encoderGif" class="btn btn-light mb-2 px-4">Gif</button>
+    <button [class.active]="encoderTemplate == encoderSharpAvi" (click)="encoderTemplate = encoderSharpAvi" class="btn btn-light mb-2 px-4">SharpAvi</button>
+    <button [class.active]="encoderTemplate == encoderFFMpeg" (click)="encoderTemplate = encoderFFMpeg" class="btn btn-light mb-2 px-4">FFMpeg</button>
   </div>
+
+  <br>
+
+  <ng-container *ngTemplateOutlet="encoderTemplate"></ng-container>
 
   <ng-template #encoderGif>
     <h4>Gif</h4>
