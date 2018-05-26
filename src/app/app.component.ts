@@ -14,7 +14,7 @@ export class AppComponent {
     if (environment.production) {
       router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
-          ga('set', 'page', event.urlAfterRedirects);
+          ga('set', 'page', '/Captura' + event.urlAfterRedirects);
           ga('send', 'pageview');
         }
       });
