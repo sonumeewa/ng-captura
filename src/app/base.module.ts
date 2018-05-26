@@ -1,31 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, Validator }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdsenseModule } from 'ng2-adsense';
+
+import { environment } from '../environments/environment.prod';
+
+import { GithubApiService } from './services/github-api.service';
+import { LatestReleaseResolver } from './services/latest-release-resolver.service';
+import { LoaderService } from './services/loader.service';
+
+import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule.forRoot(),
-    FormsModule,
     HttpClientModule,
     AdsenseModule.forRoot({
       adClient: 'ca-pub-4251360406988977',
-      adSlot: '7875153049'
+      adSlot: '7875153049',
+      adtest: String(!environment.production)
     })
   ],
-  providers: [],
-  declarations: [],
+  providers: [
+    GithubApiService,
+    LatestReleaseResolver,
+    LoaderService
+  ],
+  declarations: [
+    FileSizePipe
+  ],
   exports: [
     CommonModule,
-    NgbModule,
-    FormsModule,
     HttpClientModule,
-    AdsenseModule
+    AdsenseModule,
+    FileSizePipe
   ],
   entryComponents: []
 })

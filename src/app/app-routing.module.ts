@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LatestReleaseResolver } from './services/latest-release-resolver.service';
+
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ChangelogComponent } from './components/changelog/changelog.component';
@@ -15,6 +17,7 @@ import { CiComponent } from './components/ci/ci.component';
 import { HotkeysComponent } from './components/hotkeys/hotkeys.component';
 import { CodeOfConductComponent } from './components/code-of-conduct/code-of-conduct.component';
 import { ContributingComponent } from './components/contributing/contributing.component';
+import { DownloadsComponent } from './components/downloads/downloads.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +33,13 @@ const routes: Routes = [
   { path: 'hotkeys', component: HotkeysComponent },
   { path: 'code_of_conduct', component: CodeOfConductComponent },
   { path: 'contributing', component: ContributingComponent },
+  {
+    path: 'download',
+    component: DownloadsComponent,
+    resolve: {
+      latestRelease: LatestReleaseResolver
+    }
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

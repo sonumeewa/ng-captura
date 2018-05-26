@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BaseModule } from './base.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +21,8 @@ import { ScreenshotsComponent } from './components/screenshots/screenshots.compo
 import { LicenseComponent } from './components/license/license.component';
 import { CodeOfConductComponent } from './components/code-of-conduct/code-of-conduct.component';
 import { ContributingComponent } from './components/contributing/contributing.component';
+import { DownloadsComponent } from './components/downloads/downloads.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +41,12 @@ import { ContributingComponent } from './components/contributing/contributing.co
     ScreenshotsComponent,
     LicenseComponent,
     CodeOfConductComponent,
-    ContributingComponent
+    ContributingComponent,
+    DownloadsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     BaseModule,
     AppRoutingModule
   ],
