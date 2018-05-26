@@ -30,6 +30,7 @@
     "@angular/cli": "^1.7.3",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
+    "@types/google.analytics": "0.0.39",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "ts-node": "~3.2.0",
