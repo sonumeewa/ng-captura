@@ -16,6 +16,7 @@ export const Translations: Translation[] = [
     new Translation("Icelandic", "is", ["gautsson"]),
     new Translation("Indonesian", "id", ["TheFaR8"]),
     new Translation("Italian", "it", ["simocosimo"]),
+    new Translation("Japanese", "ja", ["heartguard"]),
     new Translation("Malayalam", "ml", ["Mathew Sachin"]),
     new Translation("Norwegian", "no", ["goggenb"]),
     new Translation("Polish", "pl", ["j4nw"]),
