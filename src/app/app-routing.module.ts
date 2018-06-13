@@ -21,7 +21,13 @@ import { DownloadsComponent } from './components/downloads/downloads.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'changelog', component: ChangelogComponent },
+  {
+    path: 'changelog',
+    children: [
+      { path: '', redirectTo: 'latest', pathMatch: 'full' },
+      { path: ':version', component: ChangelogComponent }
+    ]
+  },
   { path: 'donate', component: DonationsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'translation', component: TranslationComponent },
