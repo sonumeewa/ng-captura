@@ -5,6 +5,7 @@ export class Translation {
 export const Translations: Translation[] = [
     new Translation("Arabic", "ar", ["mohi-othman"]),
     new Translation("Chinese (Simplified) ", "zh-CN", ["Airborne76"]),
+    new Translation("Chinese (Traditional)", "zh-TW", ["anxgang"]),
     new Translation("Czech", "cs", ["nofutur3"]),
     new Translation("Danish", "da", ["Martin4ndersen"]),
     new Translation("Dutch", "nl", ["demichiel"]),
