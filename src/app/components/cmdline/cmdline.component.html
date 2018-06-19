@@ -311,7 +311,7 @@
   <div style="white-space: nowrap; overflow: auto">
     <button [class.active]="encoderTemplate == encoderGif" (click)="encoderTemplate = encoderGif" class="btn btn-light mb-2 px-4">Gif</button>
     <button [class.active]="encoderTemplate == encoderSharpAvi" (click)="encoderTemplate = encoderSharpAvi" class="btn btn-light mb-2 px-4">SharpAvi</button>
-    <button [class.active]="encoderTemplate == encoderFFMpeg" (click)="encoderTemplate = encoderFFMpeg" class="btn btn-light mb-2 px-4">FFMpeg</button>
+    <button [class.active]="encoderTemplate == encoderFFmpeg" (click)="encoderTemplate = encoderFFmpeg" class="btn btn-light mb-2 px-4">FFmpeg</button>
   </div>
 
   <br>
@@ -331,7 +331,7 @@
     <p>You can use <code>captura list</code> to check encoder indices.</p>
   </ng-template>
   
-  <ng-template #encoderFFMpeg>
+  <ng-template #encoderFFmpeg>
     <h4>FFmpeg</h4>
   
     <p>Use <code>ffmpeg:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
