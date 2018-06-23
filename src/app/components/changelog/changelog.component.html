@@ -15,50 +15,99 @@
   <ng-template #vNext>
     <h2>vNext</h2>
 
+    <h5>Audio / Video Sources</h5>
     <ul>
-      <li>Added option to Preview while recording.</li>
-      <li><strong>fix:</strong> <code>captura shot</code> failing for fullscreen screenshots.</li>
-      <li>Separate colors for Right and Middle mouse click overlays.</li>
-      <li>Support for custom image overlays.</li>
       <li>Stop Window capture when Window is closed.</li>
       <li><strong>fix:</strong> Mouse cursor position is wrong after moving region selector.</li>
       <li><strong>fix:</strong> Unable to resize Region Selector after stopping recording.</li>
+      <li>Desktop Duplication is supported with Variable Frame Rate Gif.</li>
+      <li><strong>fix:</strong> Desktop Duplication recording does not crash when Screen enters non-recordable mode. e.g. Sign-in screen.</li>
+      <li>Added an option to playback recorded audio in real-time in Config | Extras.</li>
+      <li>Record and ScreenShot buttons on Region Selector.</li>
+      <li>Added Window picker and Screen picker which prompt for selector on starting recording or taking screenshot.</li>
+      <li>More than 2 audio sources can be simultaneously recorded.</li>
+      <li>Audio sources can be changed during recording. A checkbox next to the Audio heading determines whether audio will be recorded.</li>
+      <li>Shows Error Message when bass.dll or bassmix.dll is not present.</li>
+      <li>Hide when Recording option is configured on Region Selector itself.</li>
+      <li>Refresh retains selected Audio/Video sources/codecs and Webcam.</li>
+      <li>Basic drawing support in Region Selector.</li>
+    </ul>
+
+    <h5>Preview</h5>
+    <ul>
+      <li>Added option to Preview while recording.</li>
+      <li>Supports full screen view.</li>
+    </ul>
+
+    <h5>Overlays</h5>
+    <ul>
+      <li>Overlays are now configured on a separate window.</li>
+      <li>Overlays can be positioned by dragging boxes over a Background on the window.</li>
+      <li>Separate colors for Right and Middle mouse click overlays.</li>
+      <li>Support for custom image overlays.</li>
+      <li>Overlay customization from UI is used in Console.</li>
+      <li>Option to display Mouse Pointer Overlay to make easier to track Mouse Pointer.</li>
+      <li>Added minimal mouse click animation.</li>
+      <li>Elapsed is separated from TextOverlays and can be toggled from Main View.</li>
+    </ul>
+
+    <h5>FFmpeg</h5>
+    <ul>
+      <li>Option to resize FFmpeg output video size.</li>
+      <li>FFmpeg Log maintains multiple logs.</li>
+      <li>FFmpeg Log copies complete output to clipboard.</li>
+      <li>Multiple Custom FFmpeg Codecs.</li>
+      <li>Increased FFmpeg thread_queue_size</li>
+      <li>Ensure previous frame is written when writing asynchronously.</li>
+    </ul>
+
+    <h5>Hotkey Window</h5>
+    <p>Separate window to manage hotkeys with option to add, delete or edit action and keys.</p>
+
+    <h5>Image Editor</h5>
+    <ul>
+      <li>Added a minimal image editor.</li>
+      <li>Added a new ScreenShot target: Editor.</li>
+    </ul>
+
+    <h5>Image Cropper</h5>
+    <p>Added option to crop images.</p>
+
+    <h5>Audio / Video Trimmer</h5>
+    <p>Added option to trim Audio and Video.</p>
+
+    <h5>Translation</h5>
+    <p>Added new translations:</p>
+    <ul>
+      <li>Japanese</li>
+      <li>Chinese (Simplified)</li>
+      <li>Chinese (Traditional)</li>
+    </ul>
+
+    <h5>Other</h5>
+    <ul>
+      <li><strong>fix:</strong> <code>captura shot</code> failing for fullscreen screenshots.</li>
+      <li><strong>fix:</strong> Main window webcam preview position on high DPI.</li>
       <li><code>Duration</code> is considered after <code>Start Delay</code> has elapsed.</li>
       <li><code>Duration</code> and <code>Start Delay</code> are stored in Settings.</li>
       <li>Added option to use System Proxy.</li>
       <li><strong>fix:</strong> Mouse Cursor moves slowly when recording from Command-line</li>
       <li>Webcam capture support from Command-line.</li>
-      <li>Added Chinese (Simplified) translation.</li>
-      <li>Overlay customization from UI is used in Console.</li>
-      <li>Desktop Duplication is supported with Variable Frame Rate Gif.</li>
-      <li><strong>fix:</strong> Desktop Duplication recording does not crash when Screen enters non-recordable mode. e.g. Sign-in screen.</li>
-      <li>Option to resize FFmpeg output video size.</li>
       <li>Option to Minimize to System Tray on Startup.</li>
-      <li>Option to Minimize to System Tray when Closed.</li>
-      <li>Option to display Mouse Pointer Overlay to make easier to track Mouse Pointer.</li>
+      <li>Option to Minimize to System Tray when Closed.</li>      
       <li>Add a Translator window to aid in translation. Can be opened from About tab.</li>
       <li>More icons in the UI.</li>
-      <li>FFmpeg Log maintains multiple logs.</li>
-      <li>FFmpeg Log copies complete output to clipboard.</li>
-      <li>Added minimal mouse click animation.</li>
-      <li>Added option to trim Audio and Video.</li>
-      <li>Added option to crop images.</li>
-      <li>Added a minimal image editor.</li>
-      <li>Added a new ScreenShot target: Editor.</li>
-      <li>Added an option to playback recorded audio in real-time in Config | Extras.</li>
-      <li>Separate window to manage hotkeys with option to add, delete or edit action and keys.</li>
-      <li>Record and ScreenShot buttons on Region Selector.</li>
-      <li>Added Window picker and Screen picker which prompt for selector on starting recording or taking screenshot.</li>
-      <li>Added a separate window for managing overlays where overlays can be positioned by dragging on a canvas.</li>
-      <li>More than 2 audio sources can be simultaneously recorded.</li>
-      <li>Audio sources can be changed during recording. A checkbox next to the Audio heading determines whether audio will be recorded.</li>
       <li>Multiple selectable Screenshot Save Locations.</li>
-      <li>Shows Error Message when bass.dll or bassmix.dll is not present.</li>
-      <li>Multiple Custom FFmpeg Codecs.</li>
       <li>Display Licenses in a Window.</li>
-      <li>Added Japanese and Chinese (Simplified) translations.</li>
-      <li>Hide when Recording option is configured on Region Selector itself.</li>
-      <li>Refresh retains selected Audio/Video sources/codecs and Webcam.</li>
+      <li>Notification Stack</li>
+      <li>Added an Exception Dualog.</li>
+      <li>
+          Stop Recorder when Frames are not being writen.
+          This happens when either the FrameRate is too high or a codec is slow.
+          No of frames to be written are checked with a maximum value to determine whether to stop recording.      
+          This helps prevent crash from 100% RAM usage and causing the system to hang.
+      </li>
+      <li>Ability to delete uploaded images from Imgur</li>
     </ul>
   </ng-template>
 
