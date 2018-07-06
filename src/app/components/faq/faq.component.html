@@ -29,31 +29,49 @@
     </tbody>
   </table>
   
-  <h3>Captura runs out of resources (high memory/CPU/disk usage) during recording</h3>
+  <h3>Why is maximum frame rate 30fps?</h3>
+
+  <p>Captura is not very fast on low-end systems. This limit on framerate is a protection against Captura consuming all of your CPU/Memory/Disk and causing your system to hang.</p>
+  <p>Starting from v8.0.0, you can remove this limitation by going to <span class="text-muted">Config / Extras / Remove FPS Limit</span>.</p>
+  <p>
+    For reference, Captura can capture 1920x1080 screen at 40fps on my system without audio using FFmpeg x264 codec.
+    My system specifications: 8GB RAM DDR4, Intel i5 6th Gen CPU 2.3 GHz, Windows 10.
+  </p>
+
+  <h3>Why is the length of captured video shorter than recording duration?</h3>
+  <p>
+    This happens when Captura drops frames when your system can't keep with the specified frame rate.
+    Try using a lower value of framerate, faster codec or smaller region.
+  </p>
+
+  <h3>Why does Captura run out of resources (high memory/CPU/disk usage) during recording?</h3>
   
   <p>Atleast 2 GHz CPU and 4 GB RAM are recommended.</p>
   <p>
     This may happen if frames are not being captured as fast as the framerate set.
-    Try a lower value of framerate, 15fps would always work.
+    Try a lower value of framerate, faster codec or smaller region.
+    Also, try terminating unnecessary applications running in background using Task Manager.
     We admit that the technology employed in Captura is not fast.
   </p>
-  <p>There are solutions like Fraps, Dxtory, OBS, and NVidia Share which provide 60fps recordings, but the technologies they use are complicated.</p>
   
-  <h3>Webcam capture does not work</h3>
+  <h3>Why is Webcam capture not working on my system?</h3>
   
   <p>Try updating the drivers from <code>Control Panel &gt; Device Manager</code>.</p>
   
-  <h3>All options appear blank or Captura does not start</h3>
+  <h3>Why do All options appear blank? or Why is Captura not starting on my system?</h3>
   
   <p>This can occur due to Settings file being corrupted.</p>
   <p>Try deleting <code>%AppData%/Captura</code> folder.</p>
 
-  <h3>No Audio devices are displayed</h3>
+  <p>If you are using the installed version, also try uninstalling and reinstalling.</p>
+
+  <h3>Why are Audio devices not displayed on my system?</h3>
 
   <p>Make sure bass.dll and bassmix.dll are present in app directory.</p>
   <p>These are included in releases.</p>
+  <p>Also, try updating the audio drivers.</p>
 
-  <h3>Some Antivirus says that Captura is virus infected</h3>
+  <h3>Why does my Antivirus say that Captura is virus infected?</h3>
 
   <p>Captura is virus-free. It does not include any spam, adware or spyware.</p>
   <p>It is probably due to the keystrokes capture feature being mistaken for a keylogger.</p>
