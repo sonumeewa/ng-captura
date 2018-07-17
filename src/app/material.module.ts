@@ -8,7 +8,9 @@ import {
   MatSortModule,
   MatFormFieldModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatTabsModule,
+  MatCardModule
 } from '@angular/material';
 
 var modules = [
@@ -19,7 +21,9 @@ var modules = [
   MatSortModule,
   MatFormFieldModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatTabsModule,
+  MatCardModule
 ];
 
 @NgModule({

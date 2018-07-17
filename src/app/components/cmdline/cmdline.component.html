@@ -23,22 +23,42 @@
     <li>And more ...</li>
   </ul>
 
-  <br><hr>
-  
-  <h2>Implemented Verbs</h2>
-
   <br>
 
-  <div style="white-space: nowrap; overflow: auto">
-    <button [class.active]="verbTemplate == verbNone" (click)="verbTemplate = verbNone" class="btn btn-light mb-2 px-4">No Verb</button>
-    <button [class.active]="verbTemplate == verbList" (click)="verbTemplate = verbList" class="btn btn-light mb-2 px-4">list</button>
-    <button [class.active]="verbTemplate == verbShot" (click)="verbTemplate = verbShot" class="btn btn-light mb-2 px-4">shot</button>
-    <button [class.active]="verbTemplate == verbStart" (click)="verbTemplate = verbStart" class="btn btn-light mb-2 px-4">start</button>
-  </div>
+  <mat-card>
+    <mat-card-title>Implemented Verbs</mat-card-title>
 
-  <br>
-
-  <ng-container *ngTemplateOutlet="verbTemplate"></ng-container>
+    <mat-tab-group>
+      <mat-tab label="None">
+        <br>
+        <ng-container *ngTemplateOutlet="verbNone"></ng-container>
+      </mat-tab>
+      <mat-tab label="List">
+        <br>
+        <ng-container *ngTemplateOutlet="verbList"></ng-container>
+      </mat-tab>
+      <mat-tab label="Shot">
+        <br>
+        <ng-container *ngTemplateOutlet="verbShot"></ng-container>
+      </mat-tab>
+      <mat-tab label="Start">
+        <br>
+        <ng-container *ngTemplateOutlet="verbStart"></ng-container>
+      </mat-tab>
+      <mat-tab label="FFmpeg">
+        <br>
+        Allows installation of ffmpeg from command-line.
+      </mat-tab>
+      <mat-tab label="Help">
+        <br>
+        Provides help on using the console app.
+      </mat-tab>
+      <mat-tab label="Version">
+        <br>
+        Prints the version of the console app.
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 
   <ng-template #verbNone>
     <h4>Without a Verb</h4>
@@ -235,24 +255,35 @@
     <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">-</span><span class="pl-k">-le</span>ngth <span class="pl-c1"><span class="pl-c1">10</span></span> <span class="pl-k">--</span>cursor <span class="pl-k">--</span>keys <span class="pl-k">--</span>speaker<span class="pl-k">=</span><span class="pl-c1"><span class="pl-c1">0</span></span></pre></div>
   </ng-template>
 
-  <br><hr>
-
-  <h2>Using the Source Argument</h2>
-
   <br>
 
-  <div style="white-space: nowrap; overflow: auto">
-    <button [class.active]="sourceTemplate == sourceDesktop" (click)="sourceTemplate = sourceDesktop" class="btn btn-light mb-2 px-4">Desktop</button>
-    <button [class.active]="sourceTemplate == sourceRegion" (click)="sourceTemplate = sourceRegion" class="btn btn-light mb-2 px-4">Region</button>
-    <button [class.active]="sourceTemplate == sourceScreen" (click)="sourceTemplate = sourceScreen" class="btn btn-light mb-2 px-4">Screen</button>
-    <button [class.active]="sourceTemplate == sourceNoVideo" (click)="sourceTemplate = sourceNoVideo" class="btn btn-light mb-2 px-4">No Video</button>
-    <button [class.active]="sourceTemplate == sourceWindow" (click)="sourceTemplate = sourceWindow" class="btn btn-light mb-2 px-4">Window</button>
-  </div>
+  <mat-card>
+    <mat-card-title>Using the Source Argument</mat-card-title>
 
-  <br>
+    <mat-tab-group>
+      <mat-tab label="Desktop">
+        <br>
+        <ng-container *ngTemplateOutlet="sourceDesktop"></ng-container>
+      </mat-tab>
+      <mat-tab label="Region">
+        <br>
+        <ng-container *ngTemplateOutlet="sourceRegion"></ng-container>
+      </mat-tab>
+      <mat-tab label="Screen">
+        <br>
+        <ng-container *ngTemplateOutlet="sourceScreen"></ng-container>
+      </mat-tab>
+      <mat-tab label="No Video">
+        <br>
+        <ng-container *ngTemplateOutlet="sourceNoVideo"></ng-container>
+      </mat-tab>
+      <mat-tab label="Window">
+        <br>
+        <ng-container *ngTemplateOutlet="sourceWindow"></ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 
-  <ng-container *ngTemplateOutlet="sourceTemplate"></ng-container>
-    
   <ng-template #sourceDesktop>
     <h4>Desktop</h4>
     
@@ -298,43 +329,36 @@
     <h4>Window</h4>
   
     <p>Use <code>win:&lt;hWnd&gt;</code> as the argument. <code>hWnd</code> is handle of the window.</p>
-    <p>Available only with <code>captura shot</code>.</p>
+    <p>When using with <code>captura start</code>, the window handle must be in the <code>captura list</code> output.</p>
     <p>You can use <code>captura list</code> to check visible window handles.</p>
   </ng-template>
 
-  <br><hr>
-  
-  <h2>Using the Encoder argument</h2>
-
   <br>
 
-  <div style="white-space: nowrap; overflow: auto">
-    <button [class.active]="encoderTemplate == encoderGif" (click)="encoderTemplate = encoderGif" class="btn btn-light mb-2 px-4">Gif</button>
-    <button [class.active]="encoderTemplate == encoderSharpAvi" (click)="encoderTemplate = encoderSharpAvi" class="btn btn-light mb-2 px-4">SharpAvi</button>
-    <button [class.active]="encoderTemplate == encoderFFmpeg" (click)="encoderTemplate = encoderFFmpeg" class="btn btn-light mb-2 px-4">FFmpeg</button>
-  </div>
-
-  <br>
-
-  <ng-container *ngTemplateOutlet="encoderTemplate"></ng-container>
-
-  <ng-template #encoderGif>
-    <h4>Gif</h4>
-  
-    <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>encoder gif</pre></div>
-  </ng-template>
+  <mat-card>
+    <mat-card-title>Using the Encoder argument</mat-card-title>
     
-  <ng-template #encoderSharpAvi>
-    <h4>SharpAvi</h4>
+    <mat-tab-group>
+      <mat-tab label="Gif">
+        <br>
+        <h4>Gif</h4>
   
-    <p>Use <code>sharpavi:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
-    <p>You can use <code>captura list</code> to check encoder indices.</p>
-  </ng-template>
+        <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>encoder gif</pre></div>
+      </mat-tab>
+      <mat-tab label="SharpAvi">
+        <br>
+        <h4>SharpAvi</h4>
   
-  <ng-template #encoderFFmpeg>
-    <h4>FFmpeg</h4>
+        <p>Use <code>sharpavi:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
+        <p>You can use <code>captura list</code> to check encoder indices.</p>
+      </mat-tab>
+      <mat-tab label="FFmpeg">
+        <br>
+        <h4>FFmpeg</h4>
   
-    <p>Use <code>ffmpeg:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
-    <p>You can use <code>captura list</code> to check encoder indices.</p>
-  </ng-template>
+        <p>Use <code>ffmpeg:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
+        <p>You can use <code>captura list</code> to check encoder indices.</p>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 </article>
