@@ -1,20 +1,158 @@
 <article class="container">
   <h1 class="display-4">Changelog</h1>
-  <small>Changelog is not maintained before v2.0.0</small>
+  <small>Changelog is not maintained before v3.0.0</small>
 
   <br><br><br>
 
-  <div style="white-space: nowrap; overflow: auto">
-    <button *ngFor="let item of list" [class.active]="template == item.template" (click)="goTo(item)" class="btn btn-light mb-2 px-4">{{item.version}}</button>
-  </div>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>vNext</mat-panel-title>
+        <mat-panel-description>Next Release</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="vNext"></ng-container>
+    </mat-expansion-panel>
 
-  <br>
-
-  <ng-container *ngTemplateOutlet="template"></ng-container>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>v7.0.1</mat-panel-title>
+        <mat-panel-description>20 Mar 2018</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v701"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v7.0.0</mat-panel-title>
+        <mat-panel-description>14 Mar 2018</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v700"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v6.0.1</mat-panel-title>
+        <mat-panel-description>6 Nov 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v601"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v6.0.0</mat-panel-title>
+        <mat-panel-description>1 Nov 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v600"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v5.0.1</mat-panel-title>
+        <mat-panel-description>14 Sep 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v501"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v5.0.0</mat-panel-title>
+        <mat-panel-description>10 Aug 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v500"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v4.2.2</mat-panel-title>
+        <mat-panel-description>7 Jul 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v422"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v4.2.1</mat-panel-title>
+        <mat-panel-description>4 Jul 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v421"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v4.2.0</mat-panel-title>
+        <mat-panel-description>3 Jul 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v420"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v4.1.0</mat-panel-title>
+        <mat-panel-description>18 Jun 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v410"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v4.0.0</mat-panel-title>
+        <mat-panel-description>5 Jun 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v400"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.5.0</mat-panel-title>
+        <mat-panel-description>31 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v350"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.4.0</mat-panel-title>
+        <mat-panel-description>27 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v340"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.3.0</mat-panel-title>
+        <mat-panel-description>25 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v330"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.2.0</mat-panel-title>
+        <mat-panel-description>23 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v320"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.1.0</mat-panel-title>
+        <mat-panel-description>11 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v310"></ng-container>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v3.0.0</mat-panel-title>
+        <mat-panel-description>9 May 2017</mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <ng-container *ngTemplateOutlet="v300"></ng-container>
+    </mat-expansion-panel>
+  </mat-accordion>
   
   <ng-template #vNext>
-    <h2>vNext</h2>
-
     <h5>Audio / Video Sources</h5>
     <ul>
       <li>Stop Window capture when Window is closed.</li>
@@ -112,16 +250,12 @@
   </ng-template>
 
   <ng-template #v701>
-    <h2>v7.0.1</h2>
-    
     <ul>
       <li><strong>fix:</strong> FFmpeg download link gives 404.</li>
     </ul>
   </ng-template>
   
-  <ng-template #v700>
-    <h2>v7.0.0</h2>
-    
+  <ng-template #v700>    
     <ul>
       <li>Improved efficiency of specific screen capture.</li>
       <li>The window is repositioned on startup if it is outside desktop bounds.</li>
@@ -163,16 +297,12 @@
   </ng-template>
   
   <ng-template #v601>
-    <h2>v6.0.1</h2>
-
     <ul>
       <li><strong>fix:</strong> High memory usage when recording a specific screen.</li>
     </ul>
   </ng-template>
   
   <ng-template #v600>
-    <h2>v6.0.0</h2>
-    
     <ul>
       <li>Improved consistency and animations in the UI.</li>
       <li><strong>fix:</strong> Prevent Variable Frame Rate GIF with Desktop Duplication.</li>
@@ -220,8 +350,6 @@
   </ng-template>
  
   <ng-template #v501>
-    <h2>v5.0.1</h2>
-  
     <ul>
       <li>Added Spanish Translation.</li>
       <li>Translations don't specify the country.</li>
@@ -229,8 +357,6 @@
   </ng-template>
  
   <ng-template #v500>
-    <h2>v5.0.0</h2>
-  
     <ul>
       <li>Include Cursor cannot be changed during capture.</li>
       <li>Default hotkeys made simpler.</li>
@@ -299,20 +425,14 @@
   </ng-template>
  
   <ng-template #v422>
-    <h2>v4.2.2</h2>
-  
     <p><strong>Fix:</strong> Error notification after continuous recordings.</p>
   </ng-template>
  
   <ng-template #v421>
-    <h2>v4.2.1</h2>
-  
     <p><strong>Fix</strong>: Crash when Snap to Window is clicked without dragging. It now Snaps to the window below.</p>
   </ng-template>
  
   <ng-template #v420>
-    <h2>v4.2.0</h2>
-    
     <ul>
       <li><strong>fix:</strong> Fix thread exceptions when showing MessageBox.</li>
       <li><strong>fix:</strong> NullReferenceException happening with Notifications.</li>
@@ -344,8 +464,6 @@
   </ng-template>
   
   <ng-template #v410>
-    <h2>v4.1.0</h2>
-    
     <ul>
       <li><strong>fix:</strong> Region Selector on High DPI.</li>
       <li><strong>fix:</strong> Selected Video Writer Kind null if FFmpeg folder is removed when currently selected as Video Writer Kind.</li>
@@ -359,8 +477,6 @@
   </ng-template>
   
   <ng-template #v400>
-    <h2>v4.0.0</h2>
-    
     <h5>Known Issues</h5>
     <ul>
       <li>
@@ -377,8 +493,6 @@
   </ng-template>
   
   <ng-template #v350>
-    <h2>v3.5.0</h2>
-    
     <h5>What's New</h5>
     
     <ul>
@@ -393,8 +507,6 @@
   </ng-template>
   
   <ng-template #v340>
-    <h2>v3.4.0</h2>
-    
     <h5>Known Issues</h5>
     
     <ul>
@@ -419,8 +531,6 @@
   </ng-template>
   
   <ng-template #v330>
-    <h2>v3.3.0</h2>
-    
     <h5>Known Issues</h5>
     
     <ul>
@@ -442,8 +552,6 @@
   </ng-template>
   
   <ng-template #v320>
-    <h2>v3.2.0</h2>
-    
     <ul>
       <li>.Net 4.6.1 is required.</li>
       <li>Remembers last used Audio/Video Codecs and Sources.</li>
@@ -475,16 +583,12 @@
   </ng-template>
   
   <ng-template #v310>
-    <h2>v3.1.0</h2>
-    
     <ul>
       <li><code>bass.dll</code> and <code>bassmix.dll</code> included in release.</li>
     </ul>
   </ng-template>
   
   <ng-template #v300>
-    <h2>v3.0.0</h2>
-    
     <ul>
       <li>New Colors</li>
       <li>Added a button to reset hotkeys</li>
@@ -500,52 +604,6 @@
       <li>Keystrokes displayed on lower left.</li>
       <li>Embedded the Screna.* Extension libraries' code.</li>
       <li>Multiple output formats for Audio only recording.</li>
-    </ul>
-  </ng-template>
-  
-  <ng-template #v200>
-    <h2>v2.0.0</h2>
-    
-    <ul>
-      <li>Only <em>Screna.dll</em> is a required dependency.</li>
-      <li>Manually assignable Hotkeys for Starting/Stopping or Pausing/Resuming Recording and ScreenShot.</li>
-      <li>IncludeCursor defaults to True.</li>
-      <li>Recent List shows latest items first.</li>
-      <li>Improved MouseKeyHook Overlay.</li>
-      <li>Added Fallback when Transparent Window ScreenShot fails.</li>
-      <li>Added Taskbar Overlay while Recording or Paused.</li>
-      <li>Disable Configuration during Capture.</li>
-      <li>Alpha support for Localisation.</li>
-      <li>Recording both Microphone input and Speaker output.</li>
-    </ul>
-    
-    <h5>System Tray</h5>
-    
-    <ul>
-      <li>Video/Audio Recorded, ScreenShot Taken notifications.</li>
-      <li>Notifications can be clicked to open corresponding file.</li>
-      <li>Start/Stop/Pause/Resume Recording or Take ScreenShots or Exit from Tray.</li>
-      <li>Added Minimize to System Tray option.</li>
-    </ul>
-    
-    <h5>Video/Audio Writers</h5>
-    
-    <ul>
-      <li>Video Witers grouped by Kind.</li>
-      <li>Added FFmpeg encoding support (using ffmpeg.exe) (optional) (realtime when audio or video alone, post-processing when both).</li>
-      <li>Dropped SharpAvi LAME Mp3 encoding support.</li>
-      <li>Mp3 encoding supported using FFmpeg.</li>
-    </ul>
-    
-    <h5>Region Capture</h5>
-    
-    <ul>
-      <li>Region as Video Kind.</li>
-      <li>Removed functionality of using RegionSelector in Window Video Kind.</li>
-      <li>RegionSelector is more visible.</li>
-      <li>Region Selector displays only when selected kind is Region.</li>
-      <li>Region Selector can be moved but not resized during capture.</li>
-      <li>Borders and Header of Region Selector are ignored in Region capture.</li>
     </ul>
   </ng-template>
 </article>

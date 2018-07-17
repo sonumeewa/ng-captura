@@ -24,8 +24,8 @@ const routes: Routes = [
   {
     path: 'changelog',
     children: [
-      { path: '', redirectTo: 'latest', pathMatch: 'full' },
-      { path: ':version', component: ChangelogComponent }
+      { path: ':any', redirectTo: '', pathMatch: 'full' },
+      { path: '', component: ChangelogComponent }
     ]
   },
   { path: 'donate', component: DonationsComponent },

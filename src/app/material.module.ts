@@ -1,29 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import {
-  MatSlideToggleModule,
-  MatProgressBarModule,
-  MatIconModule,
-  MatTableModule,
-  MatSortModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatButtonModule,
-  MatTabsModule,
-  MatCardModule
-} from '@angular/material';
+import * as Mat from '@angular/material';
 
 var modules = [
-  MatSlideToggleModule,
-  MatProgressBarModule,
-  MatIconModule,
-  MatTableModule,
-  MatSortModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatButtonModule,
-  MatTabsModule,
-  MatCardModule
+  Mat.MatSlideToggleModule,
+  Mat.MatProgressBarModule,
+  Mat.MatIconModule,
+  Mat.MatTableModule,
+  Mat.MatSortModule,
+  Mat.MatFormFieldModule,
+  Mat.MatInputModule,
+  Mat.MatButtonModule,
+  Mat.MatTabsModule,
+  Mat.MatCardModule,
+  Mat.MatExpansionModule
 ];
 
 @NgModule({
