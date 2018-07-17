@@ -10,6 +10,8 @@ export class ScreenshotsComponent implements OnInit {
 
   screenshots = ScreenShots;
 
+  dark = false;
+
   constructor() { }
 
   ngOnInit() {

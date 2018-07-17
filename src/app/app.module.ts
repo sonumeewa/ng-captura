@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BaseModule } from './base.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +48,7 @@ import { LoaderComponent } from './components/loader/loader.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     BaseModule,
     AppRoutingModule
   ],
