@@ -23,24 +23,44 @@
 
   <br>
 
-  <table class="table table-responsive-sm">
-    <thead class="thead-light">
-      <tr>
-        <th>Language</th>
-        <th style="white-space: nowrap;">Locale ID</th>
-        <th>Contributors</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let translation of translations">
-        <td style="white-space: nowrap;">{{translation.language}}</td>
-        <td>{{translation.id}}</td>
-        <td>
-          <span *ngFor="let translator of translation.translators; index as i">
-            <a href="https://github.com/{{translator}}" target="_blank">{{translator}}</a><span *ngIf="i != translation.translators.length - 1">, </span>
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="text-muted">Available in {{translations.length}} Languages</div>
+
+  <br>
+
+  <div class="mat-elevation-z3 w-100">
+    <div>
+      <mat-form-field class="w-100 p-4">
+        <input matInput [(ngModel)]="filterText" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText = null; applyFilter('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="t-container">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="language">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Language</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.language}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Locale ID</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="translators">
+          <mat-header-cell *matHeaderCellDef>Contributors</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span *ngFor="let translator of element.translators; index as i">
+              <a href="https://github.com/{{translator}}" target="_blank">@{{translator}}</a><span *ngIf="i != element.translators.length - 1">, </span>
+            </span>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="sticky-top bg-white"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
 </div>

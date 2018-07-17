@@ -3,13 +3,23 @@ import { NgModule } from '@angular/core';
 import {
   MatSlideToggleModule,
   MatProgressBarModule,
-  MatIconModule
+  MatIconModule,
+  MatTableModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule
 } from '@angular/material';
 
 var modules = [
   MatSlideToggleModule,
   MatProgressBarModule,
-  MatIconModule
+  MatIconModule,
+  MatTableModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule
 ];
 
 @NgModule({
