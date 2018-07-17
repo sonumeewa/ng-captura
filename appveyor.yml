@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+
 environment:
   access_token:
     secure: c1r9fMnxBX4DW0SvZ4V/5Nucdi8pzA2YiQ/wsiyfjIY19q4RyKCYZTtU+2YQbiLT
