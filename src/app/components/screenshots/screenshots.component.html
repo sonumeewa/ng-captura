@@ -9,6 +9,8 @@
 
   <div *ngFor="let screenshot of screenshots">
     <h3>{{screenshot.name}}</h3>
-    <img [alt]="screenshot.name" [src]="dark ? screenshot.darkUrl : screenshot.lightUrl" style="max-width: 100%;">
+    <div style="max-width: 500px;">
+      <img [alt]="screenshot.name" [src]="dark ? screenshot.darkUrl : screenshot.lightUrl" style="max-width: 100%;">
+    </div>
   </div>
 </div>
