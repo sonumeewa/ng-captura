@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Release } from '../../services/github-api.service';
+import { LatestRelease, Release } from '../../services/github-api.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,13 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DownloadsComponent implements OnInit {
 
-  release: Release;
+  latest: LatestRelease;
+
+  isPrerelease = false;
+  hasPrerelease = false;
+
+  get release() {
+    return this.isPrerelease ? this.latest.prerelease : this.latest.latest;
+  }
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { latestRelease: Release }) => {
-      this.release = data.latestRelease;
+    this.route.data.subscribe((data: { latestRelease: LatestRelease }) => {
+      this.latest = data.latestRelease;
+
+      if (data.latestRelease.prerelease) {
+        this.hasPrerelease = true;
+      }
     });
   }
 

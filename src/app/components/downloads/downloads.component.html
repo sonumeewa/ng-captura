@@ -1,63 +1,56 @@
-<h1 class="display-4">Captura {{release.tag}}</h1>
+<h1 class="display-4" [class.text-danger]="isPrerelease">Captura {{release.tag}}</h1>
 <p class="text-muted">Released on {{release.publishedAt | date}}</p>
+
+<p>
+  <span class="text-muted">Commit:</span>
+  <a href="https://github.com/MathewSachin/Captura/commit/{{release.commit}}" target="_blank">
+    {{release.commit.substring(0, 7)}}
+  </a>
+</p>
 
 <br>
 
-<a href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank" class="btn btn-outline-info mr-3 mb-3">View on GitHub</a>
+<a mat-raised-button color="accent" href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank">View on GitHub</a>
 
-<br><br>
+<div *ngIf="hasPrerelease" class="btn-group mx-3" role="group">
+  <button type="button" class="btn" [class.btn-outline-primary]="isPrerelease" (click)="isPrerelease = false" [class.btn-primary]="!isPrerelease">Stable</button>
+  <button type="button" class="btn" [class.btn-outline-danger]="!isPrerelease" (click)="isPrerelease = true" [class.btn-danger]="isPrerelease">Prerelease</button>
+</div>
+
+<br><br><br>
 
 <div class="row">
-  <div class="col-lg d-lg-flex">
-    <div class="card mb-3 border-primary">
-      <div class="card-header text-primary">Installer</div>
-      <div class="card-body text-primary">
-        <p class="card-text">
-          Installs Captura to your system.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted">{{release.setup.size | fileSize}}</li>
-      </ul>
-      <div class="card-footer">
-        <a class="card-link" href="{{release.setup.url}}" target="_blank">Download</a>
-      </div>
-    </div>
+  <div class="col-lg">
+    <mat-card class="mat-elevation-z5 h-100">
+      <mat-card-title>Installer</mat-card-title>
+      <mat-card-subtitle>{{release.setup.size | fileSize}}</mat-card-subtitle>
+      
+      <a mat-raised-button [color]="isPrerelease ? 'warn' : 'primary'" href="{{release.setup.url}}" download="Captura-Setup.exe">Download</a>
+      
+      <br><br>
+
+      <p>Downloads: {{release.setup.downloadCount | number}}</p>
+
+      <p class="text-muted">Installs Captura on your system.</p>
+    </mat-card>
   </div>
-  <div class="col-lg d-lg-flex">
-    <div class="card mb-3 border-success">
-      <div class="card-header text-success">Portable</div>
-      <div class="card-body">
-        <p class="card-text text-success">
-          Portable version does not need to be installed. Just extract the zip file and you are good to go.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted">{{release.portable.size | fileSize}}</li>
-      </ul>
-      <div class="card-footer">
-        <a class="card-link" href="{{release.portable.url}}" target="_blank">Download</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg d-lg-flex">
-    <div class="card mb-3 border-warning">
-      <div class="card-header text-warning">Source Code</div>
-      <div class="card-body">
-        <p class="card-text text-warning">
-          Download Source Code for this Release as a Zip file.
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted">
-          <a href="https://github.com/MathewSachin/Captura/commit/{{release.commit}}" target="_blank">
-            <mat-icon>code</mat-icon> {{release.commit.substring(0, 7)}}
-          </a>
-        </li>
-      </ul>
-      <div class="card-footer">
-        <a class="card-link" href="{{release.zipball}}" target="_blank">Download</a>
-      </div>
-    </div>
+  <div class="col-lg">
+    <mat-card class="mat-elevation-z5 h-100">
+      <mat-card-title>Portable</mat-card-title>
+      <mat-card-subtitle>{{release.portable.size | fileSize}}</mat-card-subtitle>
+      
+      <a mat-raised-button [color]="isPrerelease ? 'warn' : 'primary'" href="{{release.portable.url}}" download="Captura-Portable.zip">Download</a>
+      
+      <br><br>
+
+      <p>Downloads: {{release.portable.downloadCount | number}}</p>
+
+      <p class="text-muted">Portable version does not need to be installed. Just extract the zip file and you are good to go.</p>
+    </mat-card>
   </div>
 </div>
+
+<br><br><hr>
+
+<a mat-raised-button [color]="isPrerelease ? 'warn' : 'primary'" href="{{release.zipball}}" download="Captura-Source.zip">Source Code</a>
+<a mat-raised-button color="accent" href="https://ci.appveyor.com/project/MathewSachin/Captura" target="_blank">CI</a>
