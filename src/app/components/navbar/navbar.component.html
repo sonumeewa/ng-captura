@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse" [class.collapse]="collapsed">
+    <div class="navbar-collapse collapse" [class.show]="!collapsed">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" (click)="collapse()" routerLinkActive="active" routerLink="/download">Download</a>
