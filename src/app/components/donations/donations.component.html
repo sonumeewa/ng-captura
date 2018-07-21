@@ -1,48 +1,46 @@
-<div class="container">
-  <h1 class="display-4">Donation</h1>
+<h1 class="display-4">Donation</h1>
 
-  <br>
+<br>
 
-  <p>
-    Captura is made and maintained in personal time and is completely Ad-Free.
-    You can support this project by donating.
-  </p>
+<p>
+  Captura is made and maintained in personal time and is completely Ad-Free.
+  You can support this project by donating.
+</p>
 
-  <br>
-  
-  <span class="border border-primary p-3 d-inline-block rounded">
-    <a href="https://www.paypal.me/MathewSachin" target="_blank">
-      <img src="assets/PayPal.svg" alt="Paypal">
-    </a>
-  </span>
+<br>
 
-  <br><br><br>
+<span class="border border-primary p-3 d-inline-block rounded">
+  <a href="https://www.paypal.me/MathewSachin" target="_blank">
+    <img src="assets/PayPal.svg" alt="Paypal">
+  </a>
+</span>
 
-  <h3>Donation History</h3>
+<br><br><br>
 
-  <br>
+<h3>Donation History</h3>
 
-  <div class="mat-elevation-z3 table-responsive">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>Supporter</th>
-          <th class="text-right">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let donation of donations">
-          <td>
-            {{donation.name}}
+<br>
 
-            <ng-container *ngIf="donation.website">
-              <br>
-              <a href="{{donation.website}}" target="_blank">{{donation.website}}</a>
-            </ng-container>
-          </td>
-          <td class="text-right">{{donation.amount}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="mat-elevation-z3 table-responsive">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Supporter</th>
+        <th class="text-right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let donation of donations">
+        <td>
+          {{donation.name}}
+
+          <ng-container *ngIf="donation.website">
+            <br>
+            <a href="{{donation.website}}" target="_blank">{{donation.website}}</a>
+          </ng-container>
+        </td>
+        <td class="text-right">{{donation.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

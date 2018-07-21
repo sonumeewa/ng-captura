@@ -28,6 +28,7 @@
             <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/cmdline">Command-line</a>
             <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/faq">FAQ</a>
             <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/hotkeys">Hotkeys</a>
+            <a class="dropdown-item" (click)="collapse()" routerLinkActive="text-muted" routerLink="/gamerec">Game Recording</a>
 
             <div class="dropdown-divider"></div>
 
@@ -41,7 +42,7 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" target="_blank" href="https://gitter.im/MathewSachin/Captura">Chat</a>
+          <a class="nav-link" (click)="collapse()" routerLinkActive="active" routerLink="/contact">Contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" target="_blank" href="https://github.com/MathewSachin/Captura">GitHub</a>

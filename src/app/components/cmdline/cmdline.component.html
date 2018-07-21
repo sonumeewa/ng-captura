@@ -1,364 +1,362 @@
-<article class="container">
-  <h1 class="display-4">Command-line</h1>
+<h1 class="display-4">Command-line</h1>
+
+<br>
+
+<p>Added a new Console app project: <code>Captura.Console</code> which generates <code>captura.exe</code>.</p>
+<p>The original WPF project generates <code>captura.ui.exe</code>.</p>
+<p>We use the <a href="https://nuget.org/packages/CommandLineParser" target="_blank">CommandLineParser</a> NuGet package.</p>
+<p>The console projects uses default settings with a few modifications and does not save settings.</p>
+
+<blockquote class="blockquote">
+  <p>Command-line support is not very stable. There is a higher chance of bugs.</p>
+</blockquote>
+
+<h2>Why a separate Console app?</h2>
+
+<p>There are many issues related to using a WPF application as a console app.</p>
+
+<ul>
+  <li>WPF applications don't block the console. So, we cannot use it for scenarios like wait till capture is completed.</li>
+  <li>Writing to console does not work by default</li>
+  <li>If <code>AttachConsole</code> is used, the written content interferes with console prompt.</li>
+  <li>And more ...</li>
+</ul>
+
+<br>
+
+<mat-card>
+  <mat-card-title>Implemented Verbs</mat-card-title>
+
+  <mat-tab-group>
+    <mat-tab label="None">
+      <br>
+      <ng-container *ngTemplateOutlet="verbNone"></ng-container>
+    </mat-tab>
+    <mat-tab label="List">
+      <br>
+      <ng-container *ngTemplateOutlet="verbList"></ng-container>
+    </mat-tab>
+    <mat-tab label="Shot">
+      <br>
+      <ng-container *ngTemplateOutlet="verbShot"></ng-container>
+    </mat-tab>
+    <mat-tab label="Start">
+      <br>
+      <ng-container *ngTemplateOutlet="verbStart"></ng-container>
+    </mat-tab>
+    <mat-tab label="FFmpeg">
+      <br>
+      Allows installation of ffmpeg from command-line.
+    </mat-tab>
+    <mat-tab label="Help">
+      <br>
+      Provides help on using the console app.
+    </mat-tab>
+    <mat-tab label="Version">
+      <br>
+      Prints the version of the console app.
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+<ng-template #verbNone>
+  <h4>Without a Verb</h4>
+
+  <p>If a recognized verb is not used, <code>captura.exe</code> launches <code>captura.ui.exe</code> passing it the remaining arguments and exits.</p>
+  
+  <h5>Valid arguments</h5>
 
   <br>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Argument</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--reset</code></td>
+        <td>Reset all Settings</td>
+      </tr>
+      <tr>
+        <td><code>--tray</code></td>
+        <td>Starts minimized to System Tray</td>
+      </tr>
+      <tr>
+        <td><code>--no-persist</code></td>
+        <td>Don't Save any changes in Settings</td>
+      </tr>
+      <tr>
+        <td><code>--no-hotkey</code></td>
+        <td>Don't Register Hotkeys.</td>
+      </tr>
+      <tr>
+        <td><code>--settings</code></td>
+        <td>Custom settings folder</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p>Added a new Console app project: <code>Captura.Console</code> which generates <code>captura.exe</code>.</p>
-  <p>The original WPF project generates <code>captura.ui.exe</code>.</p>
-  <p>We use the <a href="https://nuget.org/packages/CommandLineParser" target="_blank">CommandLineParser</a> NuGet package.</p>
-  <p>The console projects uses default settings with a few modifications and does not save settings.</p>
+  <br>
   
-  <blockquote class="blockquote">
-    <p>Command-line support is not very stable. There is a higher chance of bugs.</p>
-  </blockquote>
+  <p>e.g. Start captura minimized to tray</p>
   
-  <h2>Why a separate Console app?</h2>
+  <div class="highlight highlight-source-powershell"><pre>captura <span class="pl-k">--</span>tray</pre></div>
   
-  <p>There are many issues related to using a WPF application as a console app.</p>
+  <p>is same as:</p>
+  
+  <div class="highlight highlight-source-powershell"><pre>captura.ui.exe <span class="pl-k">--</span>tray</pre></div>
+</ng-template>
+
+<ng-template #verbList>
+  <h4>Verb: list</h4>
+  
+  <p>Displays the following information:</p>
   
   <ul>
-    <li>WPF applications don't block the console. So, we cannot use it for scenarios like wait till capture is completed.</li>
-    <li>Writing to console does not work by default</li>
-    <li>If <code>AttachConsole</code> is used, the written content interferes with console prompt.</li>
-    <li>And more ...</li>
+    <li>Version</li>
+    <li>If FFmpeg is available</li>
+    <li>FFmpeg encoders</li>
+    <li>If SharpAvi is available</li>
+    <li>SharpAvi encoders</li>
+    <li>If ManagedBass is available</li>
+    <li>If MouseKeyHook is available</li>
+    <li>Visible Windows with <code>hWnd</code></li>
+    <li>Screens if there are more than 1</li>
+    <li>Available Microphones</li>
+    <li>Available Speaker output sources</li>
   </ul>
+</ng-template>
 
+<ng-template #verbShot>
+  <h4>Verb: shot</h4>
+  
+  <p>Takes a screenshot</p>
+  
+  <h5>Valid arguments</h5>
+  
   <br>
 
-  <mat-card>
-    <mat-card-title>Implemented Verbs</mat-card-title>
-
-    <mat-tab-group>
-      <mat-tab label="None">
-        <br>
-        <ng-container *ngTemplateOutlet="verbNone"></ng-container>
-      </mat-tab>
-      <mat-tab label="List">
-        <br>
-        <ng-container *ngTemplateOutlet="verbList"></ng-container>
-      </mat-tab>
-      <mat-tab label="Shot">
-        <br>
-        <ng-container *ngTemplateOutlet="verbShot"></ng-container>
-      </mat-tab>
-      <mat-tab label="Start">
-        <br>
-        <ng-container *ngTemplateOutlet="verbStart"></ng-container>
-      </mat-tab>
-      <mat-tab label="FFmpeg">
-        <br>
-        Allows installation of ffmpeg from command-line.
-      </mat-tab>
-      <mat-tab label="Help">
-        <br>
-        Provides help on using the console app.
-      </mat-tab>
-      <mat-tab label="Version">
-        <br>
-        Prints the version of the console app.
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
-
-  <ng-template #verbNone>
-    <h4>Without a Verb</h4>
-  
-    <p>If a recognized verb is not used, <code>captura.exe</code> launches <code>captura.ui.exe</code> passing it the remaining arguments and exits.</p>
-    
-    <h5>Valid arguments</h5>
-  
-    <br>
-    
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>Argument</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--reset</code></td>
-          <td>Reset all Settings</td>
-        </tr>
-        <tr>
-          <td><code>--tray</code></td>
-          <td>Starts minimized to System Tray</td>
-        </tr>
-        <tr>
-          <td><code>--no-persist</code></td>
-          <td>Don't Save any changes in Settings</td>
-        </tr>
-        <tr>
-          <td><code>--no-hotkey</code></td>
-          <td>Don't Register Hotkeys.</td>
-        </tr>
-        <tr>
-          <td><code>--settings</code></td>
-          <td>Custom settings folder</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <br>
-    
-    <p>e.g. Start captura minimized to tray</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura <span class="pl-k">--</span>tray</pre></div>
-    
-    <p>is same as:</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura.ui.exe <span class="pl-k">--</span>tray</pre></div>
-  </ng-template>
-  
-  <ng-template #verbList>
-    <h4>Verb: list</h4>
-    
-    <p>Displays the following information:</p>
-    
-    <ul>
-      <li>Version</li>
-      <li>If FFmpeg is available</li>
-      <li>FFmpeg encoders</li>
-      <li>If SharpAvi is available</li>
-      <li>SharpAvi encoders</li>
-      <li>If ManagedBass is available</li>
-      <li>If MouseKeyHook is available</li>
-      <li>Visible Windows with <code>hWnd</code></li>
-      <li>Screens if there are more than 1</li>
-      <li>Available Microphones</li>
-      <li>Available Speaker output sources</li>
-    </ul>
-  </ng-template>
-  
-  <ng-template #verbShot>
-    <h4>Verb: shot</h4>
-    
-    <p>Takes a screenshot</p>
-    
-    <h5>Valid arguments</h5>
-    
-    <br>
-
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>Argument</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--cursor</code></td>
-          <td>Include cursor in the screenshot</td>
-        </tr>
-        <tr>
-          <td><code>--source</code></td>
-          <td>The source to take screenshot of. See <a href="#using-the-source-argument">here</a>.</td>
-        </tr>
-        <tr>
-          <td><code>-f</code> or <code>--file</code></td>
-          <td>Output file path.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <br>
-    
-    <p>e.g. Take a screenshot containing cursor.</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura shot <span class="pl-k">--</span>cursor</pre></div>
-  </ng-template>
-
-  <ng-template #verbStart>
-    <h4>Verb: start</h4>
-    
-    <p>Starts Recording.</p>
-    <p>There are two modes.</p>
-    
-    <ul>
-      <li>When Length is specified, recording runs until specified Length.</li>
-      <li>When Length is not specified, <code>press q to quit</code> message is displayed.</li>
-    </ul>
-    
-    <h5>Valid arguments</h5>
-
-    <br>
-    
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>Argument</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--cursor</code></td>
-          <td>Include cursor</td>
-        </tr>
-        <tr>
-          <td><code>--keys</code></td>
-          <td>Include keystrokes</td>
-        </tr>
-        <tr>
-          <td><code>--clicks</code></td>
-          <td>Include mouse clicks</td>
-        </tr>
-        <tr>
-          <td><code>--delay</code></td>
-          <td>Delay before starting recording (in ms)</td>
-        </tr>
-        <tr>
-          <td><code>--length</code></td>
-          <td>Length of recording (in s)</td>
-        </tr>
-        <tr>
-          <td><code>--source</code></td>
-          <td>The source to record from. See <a href="#using-the-source-argument">here</a>.</td>
-        </tr>
-        <tr>
-          <td><code>--mic</code></td>
-          <td>The microphone index to use. (-1 = none (<strong>Default</strong>)) (0 is first device).</td>
-        </tr>
-        <tr>
-          <td><code>--speaker</code></td>
-          <td>The speaker output index to use. (-1 = none (<strong>Default</strong>)) (0 is first device).</td>
-        </tr>
-        <tr>
-          <td><code>-r</code> or <code>--framerate</code></td>
-          <td>Frame Rate (<strong>Default</strong> is 10).</td>
-        </tr>
-        <tr>
-          <td><code>--encoder</code></td>
-          <td>The video encoder to use. See <a href="#using-the-encoder-argument">here</a>.</td>
-        </tr>
-        <tr>
-          <td><code>--vq</code></td>
-          <td>Video Quality (1 to 100) (<strong>Default</strong> is 70).</td>
-        </tr>
-        <tr>
-          <td><code>--aq</code></td>
-          <td>Audio Quality (1 to 100) (<strong>Default</strong> is 50).</td>
-        </tr>
-        <tr>
-          <td><code>-f</code> or <code>--file</code></td>
-          <td>Output file path.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <br>
-    
-    <p>e.g. Record 10 seconds with cursor and keystrokes and audio from first speaker output.</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">-</span><span class="pl-k">-le</span>ngth <span class="pl-c1"><span class="pl-c1">10</span></span> <span class="pl-k">--</span>cursor <span class="pl-k">--</span>keys <span class="pl-k">--</span>speaker<span class="pl-k">=</span><span class="pl-c1"><span class="pl-c1">0</span></span></pre></div>
-  </ng-template>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Argument</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--cursor</code></td>
+        <td>Include cursor in the screenshot</td>
+      </tr>
+      <tr>
+        <td><code>--source</code></td>
+        <td>The source to take screenshot of. See <a href="#using-the-source-argument">here</a>.</td>
+      </tr>
+      <tr>
+        <td><code>-f</code> or <code>--file</code></td>
+        <td>Output file path.</td>
+      </tr>
+    </tbody>
+  </table>
 
   <br>
+  
+  <p>e.g. Take a screenshot containing cursor.</p>
+  
+  <div class="highlight highlight-source-powershell"><pre>captura shot <span class="pl-k">--</span>cursor</pre></div>
+</ng-template>
 
-  <mat-card>
-    <mat-card-title>Using the Source Argument</mat-card-title>
-
-    <mat-tab-group>
-      <mat-tab label="Desktop">
-        <br>
-        <ng-container *ngTemplateOutlet="sourceDesktop"></ng-container>
-      </mat-tab>
-      <mat-tab label="Region">
-        <br>
-        <ng-container *ngTemplateOutlet="sourceRegion"></ng-container>
-      </mat-tab>
-      <mat-tab label="Screen">
-        <br>
-        <ng-container *ngTemplateOutlet="sourceScreen"></ng-container>
-      </mat-tab>
-      <mat-tab label="No Video">
-        <br>
-        <ng-container *ngTemplateOutlet="sourceNoVideo"></ng-container>
-      </mat-tab>
-      <mat-tab label="Window">
-        <br>
-        <ng-container *ngTemplateOutlet="sourceWindow"></ng-container>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
-
-  <ng-template #sourceDesktop>
-    <h4>Desktop</h4>
-    
-    <p>Use the <code>desktop</code> parameter to capture the entire Desktop (<strong>Default</strong>).
-    Works with both <code>captura start</code> and <code>captura shot</code>.
-    This is the default option, so is as good as not using this option.</p>
-    <p>e.g.</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>source desktop</pre></div>
-  </ng-template>
+<ng-template #verbStart>
+  <h4>Verb: start</h4>
   
-  <ng-template #sourceRegion>
-    <h4>Region</h4>
+  <p>Starts Recording.</p>
+  <p>There are two modes.</p>
   
-    <p>Use Left, Top, Width and Height resp. as comma separated values to represent the region to capture.
-    Works with both <code>captura start</code> and <code>captura shot</code>.
-    The dimensions of the region must be even. If not, they are decreased by 1 as required.</p>
-    <p>e.g.</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura shot <span class="pl-k">--</span>source <span class="pl-c1"><span class="pl-c1">100</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">100</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">300</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">400</span></span></pre></div>
-  </ng-template>
+  <ul>
+    <li>When Length is specified, recording runs until specified Length.</li>
+    <li>When Length is not specified, <code>press q to quit</code> message is displayed.</li>
+  </ul>
   
-  <ng-template #sourceScreen>
-    <h4>Screen</h4>
-  
-    <p>Use <code>screen:&lt;index&gt;</code> as the argument. <code>index</code> is a zero-based index identifying the screen.</p>
-    <p>Works with both <code>captura start</code> and <code>captura shot</code>.</p>
-    <p>You can use <code>captura list</code> to check screen indices.</p>
-    <p>e.g.</p>
-    
-    <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>source screen:<span class="pl-c1"><span class="pl-c1">1</span></span></pre></div>
-  </ng-template>
-  
-  <ng-template #sourceNoVideo>
-    <h4>No Video</h4>
-    
-    <p>Use <code>none</code> for No Video.</p>
-    <p>Available only with <code>captura start</code>.</p>
-    <p>Can be used for audio only recording.</p>
-  </ng-template>
-  
-  <ng-template #sourceWindow>
-    <h4>Window</h4>
-  
-    <p>Use <code>win:&lt;hWnd&gt;</code> as the argument. <code>hWnd</code> is handle of the window.</p>
-    <p>When using with <code>captura start</code>, the window handle must be in the <code>captura list</code> output.</p>
-    <p>You can use <code>captura list</code> to check visible window handles.</p>
-  </ng-template>
+  <h5>Valid arguments</h5>
 
   <br>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Argument</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--cursor</code></td>
+        <td>Include cursor</td>
+      </tr>
+      <tr>
+        <td><code>--keys</code></td>
+        <td>Include keystrokes</td>
+      </tr>
+      <tr>
+        <td><code>--clicks</code></td>
+        <td>Include mouse clicks</td>
+      </tr>
+      <tr>
+        <td><code>--delay</code></td>
+        <td>Delay before starting recording (in ms)</td>
+      </tr>
+      <tr>
+        <td><code>--length</code></td>
+        <td>Length of recording (in s)</td>
+      </tr>
+      <tr>
+        <td><code>--source</code></td>
+        <td>The source to record from. See <a href="#using-the-source-argument">here</a>.</td>
+      </tr>
+      <tr>
+        <td><code>--mic</code></td>
+        <td>The microphone index to use. (-1 = none (<strong>Default</strong>)) (0 is first device).</td>
+      </tr>
+      <tr>
+        <td><code>--speaker</code></td>
+        <td>The speaker output index to use. (-1 = none (<strong>Default</strong>)) (0 is first device).</td>
+      </tr>
+      <tr>
+        <td><code>-r</code> or <code>--framerate</code></td>
+        <td>Frame Rate (<strong>Default</strong> is 10).</td>
+      </tr>
+      <tr>
+        <td><code>--encoder</code></td>
+        <td>The video encoder to use. See <a href="#using-the-encoder-argument">here</a>.</td>
+      </tr>
+      <tr>
+        <td><code>--vq</code></td>
+        <td>Video Quality (1 to 100) (<strong>Default</strong> is 70).</td>
+      </tr>
+      <tr>
+        <td><code>--aq</code></td>
+        <td>Audio Quality (1 to 100) (<strong>Default</strong> is 50).</td>
+      </tr>
+      <tr>
+        <td><code>-f</code> or <code>--file</code></td>
+        <td>Output file path.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <mat-card>
-    <mat-card-title>Using the Encoder argument</mat-card-title>
-    
-    <mat-tab-group>
-      <mat-tab label="Gif">
-        <br>
-        <h4>Gif</h4>
+  <br>
   
-        <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>encoder gif</pre></div>
-      </mat-tab>
-      <mat-tab label="SharpAvi">
-        <br>
-        <h4>SharpAvi</h4>
+  <p>e.g. Record 10 seconds with cursor and keystrokes and audio from first speaker output.</p>
   
-        <p>Use <code>sharpavi:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
-        <p>You can use <code>captura list</code> to check encoder indices.</p>
-      </mat-tab>
-      <mat-tab label="FFmpeg">
-        <br>
-        <h4>FFmpeg</h4>
+  <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">-</span><span class="pl-k">-le</span>ngth <span class="pl-c1"><span class="pl-c1">10</span></span> <span class="pl-k">--</span>cursor <span class="pl-k">--</span>keys <span class="pl-k">--</span>speaker<span class="pl-k">=</span><span class="pl-c1"><span class="pl-c1">0</span></span></pre></div>
+</ng-template>
+
+<br>
+
+<mat-card>
+  <mat-card-title>Using the Source Argument</mat-card-title>
+
+  <mat-tab-group>
+    <mat-tab label="Desktop">
+      <br>
+      <ng-container *ngTemplateOutlet="sourceDesktop"></ng-container>
+    </mat-tab>
+    <mat-tab label="Region">
+      <br>
+      <ng-container *ngTemplateOutlet="sourceRegion"></ng-container>
+    </mat-tab>
+    <mat-tab label="Screen">
+      <br>
+      <ng-container *ngTemplateOutlet="sourceScreen"></ng-container>
+    </mat-tab>
+    <mat-tab label="No Video">
+      <br>
+      <ng-container *ngTemplateOutlet="sourceNoVideo"></ng-container>
+    </mat-tab>
+    <mat-tab label="Window">
+      <br>
+      <ng-container *ngTemplateOutlet="sourceWindow"></ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+<ng-template #sourceDesktop>
+  <h4>Desktop</h4>
   
-        <p>Use <code>ffmpeg:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
-        <p>You can use <code>captura list</code> to check encoder indices.</p>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
-</article>
+  <p>Use the <code>desktop</code> parameter to capture the entire Desktop (<strong>Default</strong>).
+  Works with both <code>captura start</code> and <code>captura shot</code>.
+  This is the default option, so is as good as not using this option.</p>
+  <p>e.g.</p>
+  
+  <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>source desktop</pre></div>
+</ng-template>
+
+<ng-template #sourceRegion>
+  <h4>Region</h4>
+
+  <p>Use Left, Top, Width and Height resp. as comma separated values to represent the region to capture.
+  Works with both <code>captura start</code> and <code>captura shot</code>.
+  The dimensions of the region must be even. If not, they are decreased by 1 as required.</p>
+  <p>e.g.</p>
+  
+  <div class="highlight highlight-source-powershell"><pre>captura shot <span class="pl-k">--</span>source <span class="pl-c1"><span class="pl-c1">100</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">100</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">300</span></span><span class="pl-k">,</span><span class="pl-c1"><span class="pl-c1">400</span></span></pre></div>
+</ng-template>
+
+<ng-template #sourceScreen>
+  <h4>Screen</h4>
+
+  <p>Use <code>screen:&lt;index&gt;</code> as the argument. <code>index</code> is a zero-based index identifying the screen.</p>
+  <p>Works with both <code>captura start</code> and <code>captura shot</code>.</p>
+  <p>You can use <code>captura list</code> to check screen indices.</p>
+  <p>e.g.</p>
+  
+  <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>source screen:<span class="pl-c1"><span class="pl-c1">1</span></span></pre></div>
+</ng-template>
+
+<ng-template #sourceNoVideo>
+  <h4>No Video</h4>
+  
+  <p>Use <code>none</code> for No Video.</p>
+  <p>Available only with <code>captura start</code>.</p>
+  <p>Can be used for audio only recording.</p>
+</ng-template>
+
+<ng-template #sourceWindow>
+  <h4>Window</h4>
+
+  <p>Use <code>win:&lt;hWnd&gt;</code> as the argument. <code>hWnd</code> is handle of the window.</p>
+  <p>When using with <code>captura start</code>, the window handle must be in the <code>captura list</code> output.</p>
+  <p>You can use <code>captura list</code> to check visible window handles.</p>
+</ng-template>
+
+<br>
+
+<mat-card>
+  <mat-card-title>Using the Encoder argument</mat-card-title>
+  
+  <mat-tab-group>
+    <mat-tab label="Gif">
+      <br>
+      <h4>Gif</h4>
+
+      <div class="highlight highlight-source-powershell"><pre>captura start <span class="pl-k">--</span>encoder gif</pre></div>
+    </mat-tab>
+    <mat-tab label="SharpAvi">
+      <br>
+      <h4>SharpAvi</h4>
+
+      <p>Use <code>sharpavi:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
+      <p>You can use <code>captura list</code> to check encoder indices.</p>
+    </mat-tab>
+    <mat-tab label="FFmpeg">
+      <br>
+      <h4>FFmpeg</h4>
+
+      <p>Use <code>ffmpeg:&lt;index&gt;</code> as argument. <code>index</code> is a zero-based index identifying the encoder.</p>
+      <p>You can use <code>captura list</code> to check encoder indices.</p>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

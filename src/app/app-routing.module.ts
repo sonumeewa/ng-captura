@@ -18,6 +18,8 @@ import { HotkeysComponent } from './components/hotkeys/hotkeys.component';
 import { CodeOfConductComponent } from './components/code-of-conduct/code-of-conduct.component';
 import { ContributingComponent } from './components/contributing/contributing.component';
 import { DownloadsComponent } from './components/downloads/downloads.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { GameRecordingComponent } from './components/game-recording/game-recording.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'hotkeys', component: HotkeysComponent },
   { path: 'code_of_conduct', component: CodeOfConductComponent },
   { path: 'contributing', component: ContributingComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'gamerec', component: GameRecordingComponent },
   {
     path: 'download',
     component: DownloadsComponent,

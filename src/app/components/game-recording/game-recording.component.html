@@ -1,0 +1,24 @@
+<h1 class="display-4">Game Recording</h1>
+
+<br>
+
+<p>Some newer games can be recorded using Desktop Duplication API. Select Desktop Duplication as Video source.</p>
+<p>Make sure to use a fast codec like Mp4 (x264).</p>
+<p>A list of games that have been tried:</p>
+
+<div class="mat-elevation-z3">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Game</th>
+        <th class="text-right">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of deskDuplTested">
+        <td>{{item.name}}</td>
+        <td class="{{item.ok ? 'text-success' : 'text-danger'}} text-right">{{item.ok ? "OK" : "FAIL"}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

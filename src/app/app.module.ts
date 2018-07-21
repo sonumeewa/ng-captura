@@ -24,6 +24,8 @@ import { CodeOfConductComponent } from './components/code-of-conduct/code-of-con
 import { ContributingComponent } from './components/contributing/contributing.component';
 import { DownloadsComponent } from './components/downloads/downloads.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { GameRecordingComponent } from './components/game-recording/game-recording.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { LoaderComponent } from './components/loader/loader.component';
     CodeOfConductComponent,
     ContributingComponent,
     DownloadsComponent,
-    LoaderComponent
+    LoaderComponent,
+    ContactComponent,
+    GameRecordingComponent
   ],
   imports: [
     BrowserModule,
