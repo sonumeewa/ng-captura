@@ -24,7 +24,7 @@ export const Translations: Translation[] = [
     new Translation("Portuguese", "pt", ["igorruckert"]),
     new Translation("Romanian", "ro", ["AndreeaEne"]),
     new Translation("Russian", "ru", ["rvgulyaev"]),
-    new Translation("Spanish", "es", ["KNTRO", "Jhovany200", "RY0M43CH1Z3N"]),
+    new Translation("Spanish", "es", ["KNTRO", "MS-PC2", "RY0M43CH1Z3N"]),
     new Translation("Swedish", "sv", ["Arrowfan"]),
     new Translation("Thai", "th", ["kerlos"]),
     new Translation("Turkish", "tr", ["sgbasaraner"]),
