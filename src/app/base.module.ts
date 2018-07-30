@@ -7,10 +7,6 @@ import { MaterialModule } from './material.module';
 
 import { environment } from '../environments/environment';
 
-import { GithubApiService } from './services/github-api.service';
-import { LatestReleaseResolver } from './services/latest-release-resolver.service';
-import { LoaderService } from './services/loader.service';
-
 import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
@@ -25,11 +21,7 @@ import { FileSizePipe } from './file-size.pipe';
     }),
     MaterialModule
   ],
-  providers: [
-    GithubApiService,
-    LatestReleaseResolver,
-    LoaderService
-  ],
+  providers: [],
   declarations: [
     FileSizePipe
   ],

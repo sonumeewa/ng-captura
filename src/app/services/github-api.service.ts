@@ -43,7 +43,9 @@ const repo = "MathewSachin/Captura";
 const setup = "Captura-Setup.exe";
 const portable = "Captura-Portable.zip";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class GithubApiService {
 
   constructor(private http: HttpClient,
