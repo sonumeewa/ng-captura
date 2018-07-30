@@ -16,7 +16,7 @@ install:
   - npm install
 
 build_script:
-  - ng build --prod --base-href /Captura/
+  - ng build --prod --build-optimizer --base-href /Captura/
   - ps: Rename-Item dist/index.html 404.html
   - ps: New-Item -Path dist -Name .nojekyll -ItemType File
 

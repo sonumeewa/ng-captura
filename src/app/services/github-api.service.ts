@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs/observable/of';
 import { LoaderService } from './loader.service';
-import 'rxjs/add/operator/finally';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 export class Asset {
   constructor(public name: string, public url: string, public size: number, public downloadCount: number) { }
@@ -24,6 +23,20 @@ export class Release {
 export class LatestRelease {
   latest: Release;
   prerelease: Release;
+}
+
+class GitHubApiReleaseItem {
+  tag_name: string;
+  zipball_url: string;
+  published_at: Date;
+  target_commitish: string;
+  prerelease: boolean;
+  assets: {
+    name: string,
+    size: number,
+    browser_download_url: string,
+    download_count: number
+  }[]
 }
 
 const repo = "MathewSachin/Captura";
@@ -48,19 +61,7 @@ export class GithubApiService {
     this.loaderService.show();
 
     return this.http.get("https://api.github.com/repos/" + repo + "/releases?prerelease=true").pipe(
-      map((data: {
-        tag_name: string,
-        zipball_url: string,
-        published_at: Date,
-        target_commitish: string,
-        prerelease: boolean,
-        assets: {
-          name: string,
-          size: number,
-          browser_download_url: string,
-          download_count: number
-        }[]
-      }[]) => {
+      map((data: GitHubApiReleaseItem[]) => {
         let result = new LatestRelease();
 
         if (data != null)
@@ -103,8 +104,8 @@ export class GithubApiService {
         }
 
         return result;
-      })
-    ).finally(() => this.loaderService.hide());
+      }),
+      finalize(() => this.loaderService.hide())
+    );
   }
-
 }

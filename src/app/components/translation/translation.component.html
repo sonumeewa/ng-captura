@@ -52,7 +52,7 @@
         <mat-header-cell *matHeaderCellDef>Contributors</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <span *ngFor="let translator of element.translators; index as i">
-            <a href="https://github.com/{{translator}}" target="_blank">@{{translator}}</a><span *ngIf="i != element.translators.length - 1">, </span>
+            <a href="https://github.com/{{translator}}" target="_blank">@{{translator}}</a><span *ngIf="i != element.translators.length - 1">,&nbsp;</span>
           </span>
         </mat-cell>
       </ng-container>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { environment } from '../environments/environment';
-import { } from '@types/google.analytics';
 
 @Component({
   selector: 'app-root',
