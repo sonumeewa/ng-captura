@@ -12,4 +12,5 @@ export const DonationHistory: Donation[] = [
     new Donation("Grisha Konzalaev", "300 RUB"),
     new Donation("--", "£20.00 GBP"),
     new Donation("Mohamed BOULMERS", "€ 5.00 EUR")
+    new Donation("Martin Diewald", "€ 5.00 EUR")
 ];
