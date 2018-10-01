@@ -30,6 +30,7 @@ const routes: Routes = [
       { path: '', component: ChangelogComponent }
     ]
   },
+  { path: 'Donate', redirectTo: 'donate', pathMatch: 'full' },
   { path: 'donate', component: DonationsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'translation', component: TranslationComponent },

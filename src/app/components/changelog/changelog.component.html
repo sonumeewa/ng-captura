@@ -1,5 +1,5 @@
 <h1 class="display-4">Changelog</h1>
-<small>Changelog is not maintained before v3.0.0</small>
+<small>Changelog for versions before v5.0.0 are available on GitHub Releases</small>
 
 <br><br><br>
 
@@ -7,7 +7,7 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>vNext</mat-panel-title>
-      <mat-panel-description>Next Release</mat-panel-description>
+      <mat-panel-description>Next Release (v8.0.0)</mat-panel-description>
     </mat-expansion-panel-header>
 
     <ng-container *ngTemplateOutlet="vNext"></ng-container>
@@ -60,94 +60,6 @@
     </mat-expansion-panel-header>
 
     <ng-container *ngTemplateOutlet="v500"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v4.2.2</mat-panel-title>
-      <mat-panel-description>7 Jul 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v422"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v4.2.1</mat-panel-title>
-      <mat-panel-description>4 Jul 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v421"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v4.2.0</mat-panel-title>
-      <mat-panel-description>3 Jul 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v420"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v4.1.0</mat-panel-title>
-      <mat-panel-description>18 Jun 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v410"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v4.0.0</mat-panel-title>
-      <mat-panel-description>5 Jun 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v400"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.5.0</mat-panel-title>
-      <mat-panel-description>31 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v350"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.4.0</mat-panel-title>
-      <mat-panel-description>27 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v340"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.3.0</mat-panel-title>
-      <mat-panel-description>25 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v330"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.2.0</mat-panel-title>
-      <mat-panel-description>23 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v320"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.1.0</mat-panel-title>
-      <mat-panel-description>11 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v310"></ng-container>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>v3.0.0</mat-panel-title>
-      <mat-panel-description>9 May 2017</mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <ng-container *ngTemplateOutlet="v300"></ng-container>
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -254,7 +166,7 @@
   </ul>
 </ng-template>
 
-<ng-template #v700>    
+<ng-template #v700>
   <ul>
     <li>Improved efficiency of specific screen capture.</li>
     <li>The window is repositioned on startup if it is outside desktop bounds.</li>
@@ -420,188 +332,5 @@
     <li>Added FFmpeg HEVC Intel QSV encoder.</li>
     <li>FFmpeg is always shown in encoders list.</li>
     <li>A message with actions to take shown when trying to use FFmpeg in its absence.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v422>
-  <p><strong>Fix:</strong> Error notification after continuous recordings.</p>
-</ng-template>
-
-<ng-template #v421>
-  <p><strong>Fix</strong>: Crash when Snap to Window is clicked without dragging. It now Snaps to the window below.</p>
-</ng-template>
-
-<ng-template #v420>
-  <ul>
-    <li><strong>fix:</strong> Fix thread exceptions when showing MessageBox.</li>
-    <li><strong>fix:</strong> NullReferenceException happening with Notifications.</li>
-    <li><strong>fix:</strong> High CPU usage in Recording and Paused states.</li>
-    <li>Option to <strong>Customize Clicks and Keystrokes overlay</strong>.</li>
-    <li>Better default style for the Clicks and Keystrokes overlay.</li>
-    <li>Added Window capture Background Color.</li>
-    <li>Added Opus support for FFmpeg audio alone capture.</li>
-    <li>Improved Folder Browser Dialog (Contributed by <a href="https://github.com/armujahid" target="_blank">@armujahid</a>).</li>
-    <li>Added a circle around the Cursor, Clicks and Keys toggle options to improve accessibility.</li>
-    <li>Gif Variable Frame Rate setting defaults to True.</li>
-    <li>Added FFmpeg Logging. Openable from About tab.</li>
-    <li>Resize/Rotate/Flip transforms now only for ScreenShots.</li>
-  </ul>
-  
-  <h5>Extras</h5>
-  
-  <p>A new window openable from About tab for additional settings:</p>
-  
-  <ul>
-    <li>Accent Color</li>
-    <li>Top Bar Color</li>
-    <li>Setting Region Border Thickness</li>
-    <li>Setting ScreenShot Notification Timeout</li>
-    <li>Selecting Video Background Color</li>
-    <li>Copying output file to Clipboard</li>
-    <li>Making Main Window always to Top</li>
-  </ul>
-</ng-template>
-
-<ng-template #v410>
-  <ul>
-    <li><strong>fix:</strong> Region Selector on High DPI.</li>
-    <li><strong>fix:</strong> Selected Video Writer Kind null if FFmpeg folder is removed when currently selected as Video Writer Kind.</li>
-    <li><strong>fix:</strong> Restores in normal state from <code>Minimize to Tray</code>.</li>
-    <li>Added a Close button on Region Selector. When closed, Selected Video Source Kind changes to Window.</li>
-    <li>Using MUI as a library.</li>
-    <li>Output FileName support for start and shot commands.</li>
-    <li>CommamdLine support for Transparent ScreenShots.</li>
-    <li>New Encoder: Encode to Folder.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v400>
-  <h5>Known Issues</h5>
-  <ul>
-    <li>
-      High memory usage when encoding Gif.
-      <strong>Workaround:</strong> Use Variable Frame Rate.
-    </li>
-  </ul>
-  
-  <h5>What's New</h5>
-  
-  <ul>
-    <li>Added <a routerLink="/cmdline">Command-line support</a>.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v350>
-  <h5>What's New</h5>
-  
-  <ul>
-    <li><strong>fix:</strong> Crash when Recording stops automatically on reaching Duration.</li>
-    <li><strong>fix:</strong> Recording cannot start if Delay is set.</li>
-    <li><strong>fix:</strong> Optional libraries don't load on Chocolatey.</li>
-    <li>Localization using RESX files. <a routerLink="/translation">Translations</a> are welcome.</li>
-    <li>Scroll to change values in Number boxes.</li>
-    <li>Removed NAudio support.</li>
-    <li>Items in the Recent list are persisted only if the files exist.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v340>
-  <h5>Known Issues</h5>
-  
-  <ul>
-    <li>Crash on recording stopped by Capture Duration.</li>
-    <li>Recording cannot start if delay is set.</li>
-    <li>Optional libraries don't load on Chocolatey.</li>
-  </ul>
-  
-  <h5>What's New</h5>
-  
-  <ul>
-    <li><strong>fix:</strong> App crashes on Startup in Release builds.</li>
-    <li>Expanded/Collapsed state is persisted.</li>
-    <li>Added MessageBoxes for showing some errors.</li>
-    <li><strong>fix:</strong> Cache Images in <code>ScreenShotBalloon</code>. Fixes the unability to delete files.</li>
-    <li>Unconstrained Gif renamed to Variable Frame Rate.</li>
-    <li>Confirm RecentItem deletion.</li>
-    <li><strong>fix:</strong> After recording tasks can run before saving is completed.</li>
-    <li>Asks before Exit during Recording.</li>
-    <li><strong>fix:</strong> Hide Keystrokes and Clicks capture buttons when <code>MouseKeyHook</code> library is not present.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v330>
-  <h5>Known Issues</h5>
-  
-  <ul>
-    <li>App may crash on Startup</li>
-  </ul>
-  
-  <h5>What's New</h5>
-  
-  <ul>
-    <li><strong>fix:</strong> h264 (FFmpeg Mp4) encoder requires video dimensions to be even.</li>
-    <li><strong>Webcam Support:</strong> Not as a Video Source but as a standalone window which can be captured using standard methods.</li>
-    <li>Redesigned RegionSelector.</li>
-    <li>Implemented RegionSelector <strong>Snap to Window</strong>.</li>
-    <li><strong>fix:</strong> Prevent appearance of RegionSelector in Window list.</li>
-    <li><strong>fix:</strong> Prevent RegionSelector from being Maximized.</li>
-    <li><strong>fix:</strong> Heavy memory usage with FFmpeg.</li>
-    <li>Collapsed/Expanded state of Main Window is persisted.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v320>
-  <ul>
-    <li>.Net 4.6.1 is required.</li>
-    <li>Remembers last used Audio/Video Codecs and Sources.</li>
-    <li>Remembers Window Location.</li>
-    <li>Remembers ScreenShot Save target and Image Format.</li>
-    <li>Experimetal Gif encoding using FFmpeg.</li>
-    <li>Rotate/Flip/Resize Transforms for ScreenShot/Video.</li>
-    <li><strong>fix:</strong> FFmpeg Command-line args when encoding both audio and video.</li>
-    <li><strong>fix:</strong> WASAPI Format error on loopback.</li>
-  </ul>
-  
-  <h5>Recent List</h5>
-  
-  <ul>
-    <li>Recent List persists items (max items can be configured).</li>
-    <li>Added Recent list Clear button.</li>
-    <li><strong>fix:</strong> Scolling in Recent List.</li>
-  </ul>
-  
-  <h5>System Tray</h5>
-  
-  <ul>
-    <li>Icons in Context menu.</li>
-    <li>Double click to show/hide MainWindow.</li>
-    <li>Improved notifications.</li>
-    <li>ScreenShot notification displays the image.</li>
-    <li>Tray icon changes depending on the Recording state.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v310>
-  <ul>
-    <li><code>bass.dll</code> and <code>bassmix.dll</code> included in release.</li>
-  </ul>
-</ng-template>
-
-<ng-template #v300>
-  <ul>
-    <li>New Colors</li>
-    <li>Added a button to reset hotkeys</li>
-    <li>Hotkeys can be disabled.</li>
-    <li>Expanded State on Launch.</li>
-    <li>Hotkeys for ScreenShot of Desktop and Active Window.</li>
-    <li>Option to disable system tray notifications.</li>
-    <li>NAudio fallback if BASS is not present.</li>
-    <li>Implemented Audio and Video Quality for FFmpeg.</li>
-    <li>Fix errors in NumericBox.</li>
-    <li>Remove Video BackgroundColor.</li>
-    <li>Added Taskbar Thumb buttons.</li>
-    <li>Keystrokes displayed on lower left.</li>
-    <li>Embedded the Screna.* Extension libraries' code.</li>
-    <li>Multiple output formats for Audio only recording.</li>
   </ul>
 </ng-template>
