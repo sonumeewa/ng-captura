@@ -1,5 +1,5 @@
 export class Hotkey {
-    constructor(public name: string, public defaultCombination: string) { }
+    constructor(public name: string, public defaultCombination?: string) { }
 }
 
 export const Hotkeys: Hotkey[] = [
@@ -9,5 +9,8 @@ export const Hotkeys: Hotkey[] = [
     new Hotkey("Take ScreenShot of Active Window", "Alt + PrintScreen"),
     new Hotkey("Take ScreenShot of Desktop", "Shift + PrintScreen"),
     new Hotkey("Toggle Mouse Clicks", "Alt + F10"),
-    new Hotkey("Toggle Keystrokes", "Alt + F11")
+    new Hotkey("Toggle Keystrokes", "Alt + F11"),
+    new Hotkey("ScreenShot (Region)"),
+    new Hotkey("ScreenShot (Window)"),
+    new Hotkey("ScreenShot (Screen)")
 ];

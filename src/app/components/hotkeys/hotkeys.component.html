@@ -30,7 +30,7 @@
     <tbody>
       <tr *ngFor="let hotkey of hotkeys">
         <td>{{hotkey.name}}</td>
-        <td>{{hotkey.defaultCombination}}</td>
+        <td>{{hotkey.defaultCombination || '--'}}</td>
       </tr>
     </tbody>
   </table>
