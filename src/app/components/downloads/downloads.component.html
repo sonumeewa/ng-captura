@@ -10,18 +10,18 @@
 
 <br>
 
-<a mat-raised-button color="accent" href="https://github.com/MathewSachin/Captura/releases/latest" target="_blank">View on GitHub</a>
+<a mat-raised-button color="accent" href="https://github.com/MathewSachin/Captura/releases/latest" class="mr-3 mb-3" target="_blank">View on GitHub</a>
 
-<div *ngIf="hasPrerelease" class="btn-group mx-3" role="group">
+<div *ngIf="hasPrerelease" class="btn-group" role="group">
   <button type="button" class="btn" [class.btn-outline-primary]="isPrerelease" (click)="isPrerelease = false" [class.btn-primary]="!isPrerelease">Stable</button>
   <button type="button" class="btn" [class.btn-outline-danger]="!isPrerelease" (click)="isPrerelease = true" [class.btn-danger]="isPrerelease">Prerelease</button>
 </div>
 
-<br><br><br>
+<br><br>
 
 <div class="row">
   <div class="col-lg">
-    <mat-card class="mat-elevation-z5 h-100">
+    <mat-card class="mat-elevation-z5 mb-3">
       <mat-card-title>Installer</mat-card-title>
       <mat-card-subtitle>{{release.setup.size | fileSize}}</mat-card-subtitle>
       
@@ -35,7 +35,7 @@
     </mat-card>
   </div>
   <div class="col-lg">
-    <mat-card class="mat-elevation-z5 h-100">
+    <mat-card class="mat-elevation-z5 mb-3">
       <mat-card-title>Portable</mat-card-title>
       <mat-card-subtitle>{{release.portable.size | fileSize}}</mat-card-subtitle>
       

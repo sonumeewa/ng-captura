@@ -1,3 +1,9 @@
 .btn {
     box-shadow: none !important;
 }
+
+@media (min-width: 992px) {
+    mat-card {
+        height: 100%;
+    }
+}
