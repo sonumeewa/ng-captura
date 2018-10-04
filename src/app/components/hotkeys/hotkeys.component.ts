@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotkeys } from '../../models/hotkeys';
+import { Hotkey } from '../../models/screenshots';
 
 @Component({
   selector: 'app-hotkeys',
@@ -14,5 +15,7 @@ export class HotkeysComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  screenshotLink = Hotkey.lightUrl;
 
 }
