@@ -9,6 +9,7 @@ function local(fileName: string, name?: string) {
 }
 
 export const Home = local("Home");
+export const Hotkey = new ScreenShot("Configure | Hotkeys", "https://i.imgur.com/vHo6CTM.png", "https://i.imgur.com/pHQ1hJD.png");
 
 export const ScreenShots: ScreenShot[] = [
     Home,
@@ -18,6 +19,6 @@ export const ScreenShots: ScreenShot[] = [
     local("Proxy"),
     local("FFmpeg"),
     local("Configure"),
-    new ScreenShot("Configure | Hotkeys", "https://i.imgur.com/vHo6CTM.png", "https://i.imgur.com/pHQ1hJD.png"),
+    Hotkey,
     new ScreenShot("Configure | Overlays", "https://i.imgur.com/WjSciZd.png", "https://i.imgur.com/zWaSRaw.png")    
 ];
