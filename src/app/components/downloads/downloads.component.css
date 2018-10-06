@@ -7,3 +7,7 @@
         height: 100%;
     }
 }
+
+a[mat-raised-button]:hover {
+    text-decoration: unset;
+}
